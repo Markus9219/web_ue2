@@ -67,4 +67,16 @@ public class GameBean {
 	public int getCurrentRound() {
 		return 0;
 	}
+	
+	public Question getActiveQuestion() {
+		return null;
+	}
+	
+	public Avatar getWinner() {
+		return null;
+	}
+	
+	public Avatar getLoser() {
+		return null;
+	}
 }
