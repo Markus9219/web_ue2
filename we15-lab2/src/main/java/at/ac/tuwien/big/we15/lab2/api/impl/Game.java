@@ -35,12 +35,16 @@ public class Game {
 		return scoreKI;
 	}
 	
-	public void setScorePlayer(int scorePlayer){
-		this.scorePlayer = scorePlayer;
+	public void increaseRound(){
+		currentRound++;
 	}
 	
-	public void setScoreKI(int scoreKI){
-		this.scoreKI = scoreKI;
+	public void increaseScorePlayer(int scorePlayer){
+		this.scorePlayer += scorePlayer;
+	}
+	
+	public void increaseScoreKI(int scoreKI){
+		this.scoreKI += scoreKI;
 	}
 	
 

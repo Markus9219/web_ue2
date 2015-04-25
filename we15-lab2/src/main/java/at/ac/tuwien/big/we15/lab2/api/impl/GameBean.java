@@ -3,15 +3,23 @@ package at.ac.tuwien.big.we15.lab2.api.impl;
 import java.util.Date;
 import java.util.List;
 
+import at.ac.tuwien.big.we15.lab2.api.Answer;
 import at.ac.tuwien.big.we15.lab2.api.Avatar;
 import at.ac.tuwien.big.we15.lab2.api.Category;
 import at.ac.tuwien.big.we15.lab2.api.Question;
 
 public class GameBean {
 	private Game game;
+	private List<Category> categories;
+	private Question currentQuestion;
+	private int currentCategory;
+	private List<String> messageLog;
 	
 	public GameBean(List<Category> categories) {
-		//game = new Game();
+		this.categories = categories;
+		Avatar player =  Avatar.BLACK_WIDOW;
+		Avatar ki = Avatar.DEADPOOL;
+		game = new Game(player, ki);
 	}
 
 	// start new
@@ -21,17 +29,67 @@ public class GameBean {
 	
 	// get questions
 	public List<Category> getQuestions() {
-		return null;
+		return categories;
 	}
 	
 	// select question
-	public Question selectQuestion(int id){
-		return null;
+	public Question selectQuestion(int id, String categoryName){
+		int category = 0;
+		for(int i = 0; i < categories.size(); i++){
+			if(categories.get(i).getName().equals(categoryName)){
+				category = i;
+			}
+		}
+		currentCategory = category;
+		currentQuestion = categories.get(category).getQuestions().get(id);
+		return currentQuestion;
 	}
 	
 	// answer question
 	public boolean answerQuestion(List<Integer> answerIds) {
-		return false;
+		List<Answer> answers = currentQuestion.getAllAnswers();
+		boolean correct = false;
+		if(answers.size() != answerIds.size()){
+			correct = false;
+		}else{
+			for(int i = 0; i < answerIds.size(); i++){
+				for(int j = 0; j < answers.size(); j++){
+					if(answers.get(j).getId() == answerIds.get(i)){
+						correct = true;
+					}
+				}
+			}
+		}
+		if(correct == true){
+			game.increaseScorePlayer(currentQuestion.getValue());
+			messageLog.add("Du hast richtig gewantwortet: +" + currentQuestion.getValue() + "€");
+		}else{
+			game.increaseScorePlayer(-currentQuestion.getValue());
+			messageLog.add("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€");
+		}
+		categories.get(currentCategory).removeQuestion(currentQuestion);
+		startKITurn();
+		game.increaseRound();
+		return correct;
+	}
+	
+	public void startKITurn(){
+		List<Question> questionsKI = null;
+		for(int i = 0; i < categories.size(); i++){
+			for(int j = 0; j < categories.get(i).getQuestions().size(); j++){
+				questionsKI.add(categories.get(i).getQuestions().get(j));
+			}
+		}
+		int r = (int) (Math.random() * questionsKI.size());
+		double c = Math.random();
+		if(c > 0.5){
+			game.increaseScoreKI(questionsKI.get(r).getValue());
+			messageLog.add("Deadpool hat richtig geantwortet: +" + questionsKI.get(r).getValue() + "€");
+		}else{
+			game.increaseScoreKI(-questionsKI.get(r).getValue());
+			messageLog.add("Deadpool hat falsch geantwortet: -" + questionsKI.get(r).getValue() + "€");
+		}
+		//lösche Frage
 	}
 	
 	// get score player
@@ -61,28 +119,54 @@ public class GameBean {
 	 * @return
 	 */
 	public List<String> getMessageLog() {
-		return null;
+		return messageLog;
 	}
 	
 	public int getCurrentRound() {
-		return 0;
+		return game.getCurrentRound();
 	}
 	
 	public Question getActiveQuestion() {
-		return null;
+		return currentQuestion;
 	}
 	
 	public Avatar getWinner() {
-		return null;
+		if(game.getCurrentRound() == 10){
+			if(game.getScorePlayer() > game.getScoreKI()){
+				return game.getPlayer();
+			}else{
+				return game.getKI();
+			}
+		}else{
+			return null;
+		}
 	}
 	
 	public Avatar getLoser() {
-		return null;
+		if(game.getCurrentRound() == 10){
+			if(game.getScorePlayer() < game.getScoreKI()){
+				return game.getPlayer();
+			}else{
+				return game.getKI();
+			}
+		}else{
+			return null;
+		}
 	}
+	
 	public int getScoreWinner(){
-		return 0;
+		if(game.getScorePlayer() > game.getScoreKI()){
+			return game.getScorePlayer();
+		}else{
+			return game.getScoreKI();
+		}
 	}
+	
 	public int getScoreLoser(){
-		return 0;
+		if(game.getScorePlayer() < game.getScoreKI()){
+			return game.getScorePlayer();
+		}else{
+			return game.getScoreKI();
+		}
 	}
 }
