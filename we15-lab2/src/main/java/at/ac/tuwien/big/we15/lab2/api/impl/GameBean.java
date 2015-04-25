@@ -47,6 +47,19 @@ public class GameBean {
 	
 	// answer question
 	public boolean answerQuestion(List<Integer> answerIds) {
+		boolean correct = false;
+		if(whoStartsRound() == true){
+			correct = playerTurn(answerIds);
+			startKITurn();
+		}else{
+			startKITurn();
+			correct = playerTurn(answerIds);
+		}
+		game.increaseRound();
+		return correct;
+	}
+	
+	public boolean playerTurn(List<Integer> answerIds){
 		List<Answer> answers = currentQuestion.getAllAnswers();
 		boolean correct = false;
 		if(answers.size() != answerIds.size()){
@@ -62,14 +75,12 @@ public class GameBean {
 		}
 		if(correct == true){
 			game.increaseScorePlayer(currentQuestion.getValue());
-			messageLog.add("Du hast richtig gewantwortet: +" + currentQuestion.getValue() + "€");
+			messageLog.add("Du hast richtig geantwortet: +" + currentQuestion.getValue() + "€");
 		}else{
 			game.increaseScorePlayer(-currentQuestion.getValue());
 			messageLog.add("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€");
 		}
 		categories.get(currentCategory).removeQuestion(currentQuestion);
-		startKITurn();
-		game.increaseRound();
 		return correct;
 	}
 	
@@ -89,7 +100,19 @@ public class GameBean {
 			game.increaseScoreKI(-questionsKI.get(r).getValue());
 			messageLog.add("Deadpool hat falsch geantwortet: -" + questionsKI.get(r).getValue() + "€");
 		}
-		//lösche Frage
+		for(int i = 0; i < categories.size(); i++){
+			if(categories.get(i).getQuestions().contains(questionsKI.get(r))){
+				categories.get(i).getQuestions().remove(questionsKI.get(r));
+			}
+		}
+	}
+	
+	public boolean whoStartsRound(){
+		if(getScorePlayer() >= getScoreNpc()){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	// get score player
@@ -132,7 +155,7 @@ public class GameBean {
 	
 	public Avatar getWinner() {
 		if(game.getCurrentRound() == 10){
-			if(game.getScorePlayer() > game.getScoreKI()){
+			if(game.getScorePlayer() >= game.getScoreKI()){
 				return game.getPlayer();
 			}else{
 				return game.getKI();
