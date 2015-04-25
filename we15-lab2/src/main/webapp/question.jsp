@@ -1,9 +1,13 @@
 <%@page import="at.ac.tuwien.big.we15.lab2.api.Question"%>
+<%@page import="at.ac.tuwien.big.we15.lab2.api.Category"%>
+<%@page import ="at.ac.tuwien.big.we15.lab2.api.Avatar"%>
+<%@page import ="at.ac.tuwien.big.we15.lab2.api.Answer"%>
+<%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="gameBean" scope="session" type="at.ac.tuwien.big.we15.lab2.api.impl.GameBean" class="at.ac.tuwien.big.we15.lab2.api.impl.GameBean"/>
 
-<%@page import ="at.ac.tuwien.big.we15.lab2.api.Avatar"%>
-<%@page import ="at.ac.tuwien.big.we15.lab2.api.Answer"%>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -40,15 +44,15 @@
             <h2 id="gameinfoinfoheading" class="accessibility">Spielinformationen</h2>
             <section id="firstplayer" class="playerinfo leader" aria-labelledby="firstplayerheading">
                <h3 id="firstplayerheading" class="accessibility">Führender Spieler</h3>
-               <img class="avatar" src="img/avatar/black-widow_head.png" alt="Spieler-Avatar Black Widow" />
+               <img class="avatar" src="<%= gameBean.getWinner().getImageHead() %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername"><% %> (Du)</td>
+                     <td class="playername"><%= gameBean.getPlayerAvatar().getName() %> (Du)</td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
-                     <td class="playerpoints">2000 €</td>
+                     <td class="playerpoints"><%= gameBean.getScorePlayer() %> €</td>
                   </tr>
                </table>
             </section>
@@ -58,28 +62,28 @@
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername">Deadpool</td>
+                     <td class="playername"><%=gameBean.getNpcAvatar().getName() %></td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
-                     <td class="playerpoints">400 €</td>
+                     <td class="playerpoints"><%= gameBean.getScoreNpc() %> €</td>
                   </tr>
                </table>
             </section>
-            <p id="round">Frage: 3 / 10</p>
+            <p id="round">Frage: <%= gameBean.getCurrentRound() %> / 10</p>
          </section>
             
       <!-- Question -->
       
-      <% Question currentQuestion = gameBean.getActiveQuestion(); %>
+      <% Question currentQuestion = gameBean.getActiveQuestion();%>
       
       <section id="question" aria-labelledby="questionheading">
             <form id="questionform" action="jeopardy.xhtml" method="get">
                <h2 id="questionheading" class="accessibility">Frage</h2>
-               <p id="questiontype">TUWIEN für € 300</p>
-               <p id="questiontext"><%=question.getText() %></p>
+               <p id="questiontype"><%=currentQuestion.getCategory().getName() %> für € <%=currentQuestion.getValue() %></p>
+               <p id="questiontext"><%=currentQuestion.getText()%></p>
                <ul id="answers">
-               		<% int i = 1; for(Answer answer : question.getAllAnswers()){
+               		<% int i = 1; for(Answer answer : currentQuestion.getAllAnswers()){
                			i++;
                			%><li>
                			<input name="answers" id="answer_<%=i%>" type="checkbox"/><label class="tile clickable" for="answer_<%=i%>"><%=answer.getText()%></label></li>

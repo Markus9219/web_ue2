@@ -79,4 +79,10 @@ public class GameBean {
 	public Avatar getLoser() {
 		return null;
 	}
+	public int getScoreWinner(){
+		return 0;
+	}
+	public int getScoreLoser(){
+		return 0;
+	}
 }
