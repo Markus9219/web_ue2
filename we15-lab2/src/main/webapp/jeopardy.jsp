@@ -76,7 +76,7 @@
             <p class="user-info positive-change"><%=gameBean.getMessageLog() %> +<%=gameBean.getActiveQuestion().getValue() %> €</p>
             <p class="user-info negative-change"><%=gameBean.getMessageLog() %> -<%=gameBean.getActiveQuestion().getValue() %> €</p>
             <p class="user-info"><%=gameBean.getNpcAvatar().getName() %> hat <%=gameBean.getActiveQuestion().getCategory() %> für € <%=gameBean.getActiveQuestion().getValue() %> gewählt.</p>
-            <form id="questionform" action="question.xhtml" method="post">
+            <form id="questionform" action="BigJeopardyServlet" method="post">
                
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>
@@ -106,6 +106,7 @@
          %>     
                </fieldset>               
                <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
+               <input type="hidden" value="selectQuestion" name="action"/>
             </form>
          </section>
          
@@ -116,10 +117,10 @@
             <script type="text/javascript">
             		if (supportsLocalStorage()) {
                 		if (localStorage.getItem('lastGame') != null) {
-                    	$("div.lastG").replaceWith("<p>Letztes Spiel: " + $.datepicker.parseDate("dd-mm-yyyy", localStorage.getItem('lastGame')) + "</p>");
+                    		$("div.lastG").replaceWith("<p>Letztes Spiel: " + $.datepicker.parseDate("dd-mm-yyyy", localStorage.getItem('lastGame')) + "</p>");
                 		}
             		}
-        		</script>
+        	</script>
          </section>
 		</div>
 		
