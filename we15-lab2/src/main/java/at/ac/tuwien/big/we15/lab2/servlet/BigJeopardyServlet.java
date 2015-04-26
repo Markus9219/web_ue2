@@ -26,30 +26,23 @@ public class BigJeopardyServlet extends HttpServlet{
 	
 	
 	public BigJeopardyServlet(){
-		System.out.println("constructor");
-//		getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
 	}
 	
 	@Override
 	public void init() throws ServletException {
         super.init();
-        System.out.println("init");
         
         ServletContext servletcontext = getServletContext();
     	JeopardyFactory factory = new ServletJeopardyFactory(servletcontext);
     	QuestionDataProvider provider = factory.createQuestionDataProvider();
     	categories = provider.getCategoryData();
-        
-//        getServletContext().setAttribute("categories", categories);
-//        getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
     }
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("in der doGet Methode");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GameBeanImpl bean = (GameBeanImpl) request.getSession(true).getAttribute("gameBean");
-		request.getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
-		request.getSession().setAttribute("test123", "ein text");
+		String nextPage = "/login.jsp";
+		
 		if(bean == null) {
 			bean = new GameBeanImpl();
 			bean.setCategories(categories);
@@ -57,16 +50,16 @@ public class BigJeopardyServlet extends HttpServlet{
 		}
 		request.getServletContext().setAttribute("categories", categories);
 		
-		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+		dispatcher.forward(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("in der doPost methode");
 		GameBeanImpl bean = (GameBeanImpl) request.getSession(true).getAttribute("gameBean");
-		request.getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
-		request.getServletContext().setAttribute("categories", categories);
 		String nextPage = "/login.jsp";
+		request.getServletContext().setAttribute("categories", categories);
 		
 		if(bean == null) {
 			bean = new GameBeanImpl();
@@ -78,8 +71,10 @@ public class BigJeopardyServlet extends HttpServlet{
 		
 		if(action != null) {
 			if(action.equals("newGame")) {
+				System.out.println("STarte neues GAME");
 				bean = new GameBeanImpl();
 				bean.setCategories(categories);
+				request.getSession().setAttribute("gameBean", bean);
 				nextPage = "/jeopardy.jsp";
 			}else if (action.equals("answerQuestion")) {
 				String[] answerIds = request.getParameterValues("answerIds");
@@ -89,7 +84,27 @@ public class BigJeopardyServlet extends HttpServlet{
 						answers.add(Integer.parseInt(a));
 					}
 				}
+				
+				int roundBeforePlayerAnswer = bean.getCurrentRound();
+				
+				bean.setActivePlayer(bean.getPlayerAvatar());
 				bean.answerQuestion(answers);
+				
+				int roundAfterPlayerAnswer = bean.getCurrentRound();
+				
+				if(roundBeforePlayerAnswer == roundAfterPlayerAnswer) {
+					bean.setActivePlayer(bean.getNpcAvatar());
+					bean.kiTurn();
+				}
+				
+				int pScore = bean.getScorePlayer();
+				int vScore = bean.getScoreNpc();
+				
+				if(vScore < pScore){
+					bean.setActivePlayer(bean.getNpcAvatar());
+					bean.kiTurn();
+				}
+				
 				if(bean.getWinner() != null) {
 					nextPage = "/winner.jsp";
 				}else{

@@ -43,9 +43,6 @@
                <h3 id="firstplayerheading" class="accessibility">Führender Spieler</h3>
                
                <% 
-               System.out.println("mit request: " + request.getServletContext().getAttribute("test123"));
-               System.out.println("ohne request: " + getServletContext().getAttribute("test123"));
-               System.out.println("session: " + request.getSession().getAttribute("test123"));
 
                // Fuehrt der spieler oder der NPC
                int scoreNpc = gameBean.getScoreNpc();
@@ -75,7 +72,7 @@
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername"><%= name1 %> (Du)</td>
+                     <td class="playername"><%= name1 %></td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
@@ -136,7 +133,7 @@
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>
                <% 
-               System.out.println("test123: " + request.getServletContext().getAttribute("test123"));         
+ 
         
                List<Category> categories = (List<Category>) request.getServletContext().getAttribute("categories");
                
@@ -155,6 +152,15 @@
 	        		 int questionId = question.getId();
 	        		 %>
 	                 <li><input name="questionId" id="question_<%=questionId%>" value="<%=questionId%>" type="radio" <%= (gameBean.wasAnswered(questionId)) ? "disabled=\"disabled\"" : "" %> /><label class="tile clickable" for="question_<%=questionId%>">€ <%=questionValue%></label></li>
+	        		 
+	        		 <script type="text/javascript">
+			            // initialize time
+			            $("#question_<%=questionId%>").change(function() {
+			                document.getElementById("next").removeAttribute("disabled");
+			            });            
+
+        			</script>
+	        		 
 	        		 <%
 	        	 }
 				 %>			
@@ -164,9 +170,15 @@
 	          }
 	          %>
 		   
-               </fieldset>               
-               <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
+               </fieldset>
+               <%
+               if(gameBean.getWinner() != null) {
+            	   %><input class="greenlink formlink clickable" name="question_submit" id="nextUntouched" type="submit" value="wählen" accesskey="s" disabled="disabled" /><%
+               }else{
+            	   %><input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" disabled="disabled" /><%
+               }
                
+               %>
             </form>
          </section>
          

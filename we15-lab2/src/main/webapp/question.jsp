@@ -73,7 +73,7 @@
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername"><%= name1 %> (Du)</td>
+                     <td class="playername"><%= name1 %></td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
@@ -111,7 +111,7 @@
                		<% int i = 1; for(Answer answer : currentQuestion.getAllAnswers()){
                			i++;
                			%><li>
-               			<input name="answerIds" value="<%=i %>" id="answer_<%=i%>" type="checkbox"/><label class="tile clickable" for="answer_<%=i%>"><%=answer.getText()%></label></li>
+               			<input name="answerIds" value="<%=answer.getId() %>" id="answer_<%=i%>" type="checkbox"/><label class="tile clickable" for="answer_<%=i%>"><%=answer.getText()%></label></li>
                		<% 
                		}           
                		%>

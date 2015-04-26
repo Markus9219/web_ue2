@@ -15,25 +15,26 @@ public class GameBeanImpl {
 	private Question currentQuestion;
 	private List<Message> messageLog = new ArrayList<Message>();
 	private List<Question> answered = new ArrayList<Question>();
+	private List<Question> remainingQuestions = new ArrayList<Question>();
+	private Avatar activePlayer;
 	
 	public GameBeanImpl() {
 		Avatar player =  Avatar.BLACK_WIDOW;
 		Avatar ki = Avatar.DEADPOOL;
 		game = new Game(player, ki);
+		activePlayer = player;
 	}
 	
 	public void setCategories(List<Category> categories) {
 		System.out.println("setCategories wird aufgerufen aber zu spaet wahrscheinlich.");
 		this.categories = categories;
+		
+		for(int i = 0; i < categories.size(); i++){
+			for(int j = 0; j < categories.get(i).getQuestions().size(); j++){
+				remainingQuestions.add(categories.get(i).getQuestions().get(j));
+			}
+		}
 	}
-	
-//	public GameBeanImpl(List<Category> categories) {
-//		this.categories = categories;
-//		Avatar player =  Avatar.BLACK_WIDOW;
-//		Avatar ki = Avatar.DEADPOOL;
-//		game = new Game(player, ki);
-//	}
-
 
 	public boolean wasAnswered(int id) {
 		for(Question q:answered){
@@ -50,6 +51,12 @@ public class GameBeanImpl {
 			for(Question question:category.getQuestions()){
 				if(question.getId() == id) {
 					currentQuestion = question;
+					
+					if(activePlayer.isVillain()) {
+						String nachricht = activePlayer.getName() + " hat " + currentQuestion.getCategory().getName() + " für € " + currentQuestion.getValue() + " gewählt.";
+						messageLog.add(new Message(nachricht, MessageType.NEUTRAL));
+					}
+					
 					return question;
 				}
 			}
@@ -57,77 +64,75 @@ public class GameBeanImpl {
 		return null;
 	}
 	
-	// answer question
-	public boolean answerQuestion(List<Integer> answerIds) {
-		boolean correct = false;
-		if(whoStartsRound() == true){
-			correct = playerTurn(answerIds);
-			startKITurn();
-		}else{
-			startKITurn();
-			correct = playerTurn(answerIds);
-		}
-		game.increaseRound();
-		return correct;
-	}
-	
-	public boolean playerTurn(List<Integer> answerIds){
-		List<Answer> answers = currentQuestion.getCorrectAnswers();
+	public boolean answerQuestion(List<Integer> answerIds){
+		List<Answer> correctAnswers = currentQuestion.getCorrectAnswers();
 		
 		boolean correct = true;
-		if(answers.size() != answerIds.size()){
+		if(correctAnswers.size() != answerIds.size()){
 			correct = false;
 		}else{
-			for(Answer correctAnswer:answers) {
+			for(Answer correctAnswer:correctAnswers) {
 				if(!answerIds.contains(correctAnswer.getId()))
 					correct = false;
 			}
 		}
-		if(correct == true){
-			game.increaseScorePlayer(currentQuestion.getValue());
-			messageLog.add(new Message("Du hast richtig geantwortet: +" + currentQuestion.getValue() + "€", MessageType.POSITIVE));
+		
+		if(!activePlayer.isVillain()) {
+			if(correct == true){
+				game.increaseScorePlayer(currentQuestion.getValue());
+				messageLog.add(new Message("Du hast richtig geantwortet: +" + currentQuestion.getValue() + "€", MessageType.POSITIVE));
+			}else {
+				game.increaseScorePlayer(-currentQuestion.getValue());
+				messageLog.add(new Message("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€", MessageType.NEGATIVE));
+			}
 		}else{
-			game.increaseScorePlayer(-currentQuestion.getValue());
-			messageLog.add(new Message("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€", MessageType.NEGATIVE));
+			if(correct == true){
+				game.increaseScoreKI(currentQuestion.getValue());
+				messageLog.add(new Message("Deadpool hat richtig geantwortet: +" + currentQuestion.getValue() + "€", MessageType.POSITIVE));
+			}else {
+				game.increaseScoreKI(-currentQuestion.getValue());
+				messageLog.add(new Message("Deadpool hat falsch geantwortet: -" + currentQuestion.getValue() + "€", MessageType.NEGATIVE));
+			}
 		}
-//		categories.get(currentCategory).removeQuestion(currentQuestion);
+		
+		
 		answered.add(currentQuestion);
+		remainingQuestions.remove(currentQuestion);
+		
+		if(answered.size() % 2 == 0) {
+			game.increaseRound();
+		}
+		
 		return correct;
 	}
 	
-	public void startKITurn(){
-		List<Question> questionsKI = new ArrayList<Question>();
-		for(int i = 0; i < categories.size(); i++){
-			for(int j = 0; j < categories.get(i).getQuestions().size(); j++){
-				questionsKI.add(categories.get(i).getQuestions().get(j));
-			}
-		}
-		int r = (int) (Math.random() * questionsKI.size());
-		// Deadpool hat TUWIEN für € 1000 gewählt.
-		String nachricht = game.getKI().getName() + " hat " + questionsKI.get(r).getCategory().getName() + " für € " + questionsKI.get(r).getValue() + " gewählt.";
-		messageLog.add(new Message(nachricht, MessageType.NEUTRAL));
-		
-		double c = Math.random();
-		if(c > 0.5){
-			game.increaseScoreKI(questionsKI.get(r).getValue());
-			messageLog.add(new Message("Deadpool hat richtig geantwortet: +" + questionsKI.get(r).getValue() + "€", MessageType.POSITIVE));
+	public void changeActivePlayer() {
+		if(activePlayer.isVillain()) {
+			activePlayer = game.getPlayer();
 		}else{
-			game.increaseScoreKI(-questionsKI.get(r).getValue());
-			messageLog.add(new Message("Deadpool hat falsch geantwortet: -" + questionsKI.get(r).getValue() + "€", MessageType.NEGATIVE));
-		}
-		for(int i = 0; i < categories.size(); i++){
-			if(categories.get(i).getQuestions().contains(questionsKI.get(r))){
-//				categories.get(i).getQuestions().remove(questionsKI.get(r));
-				answered.add(questionsKI.get(r));
-			}
+			activePlayer = game.getKI();
 		}
 	}
 	
-	public boolean whoStartsRound(){
-		if(getScorePlayer() >= getScoreNpc()){
-			return true;
+	public void kiTurn() {
+		// select question
+		int r = (int) (Math.random() * remainingQuestions.size());
+		
+		Question kiSelectedQuestion = remainingQuestions.get(r);
+		
+		selectQuestion(kiSelectedQuestion.getId());
+		
+		// bestimme zufaellig ob richtig oder falsch
+		double c = Math.random();
+		List<Integer> answerIds = new ArrayList<Integer>();
+		if(c > 0.5){
+			for(Answer correctAnswer : kiSelectedQuestion.getCorrectAnswers()) {
+				answerIds.add(correctAnswer.getId());
+			}
+			
+			answerQuestion(answerIds);
 		}else{
-			return false;
+			answerQuestion(answerIds);
 		}
 	}
 	
@@ -170,7 +175,7 @@ public class GameBeanImpl {
 	}
 	
 	public Avatar getWinner() {
-		if(game.getCurrentRound() == 10){
+		if(game.getCurrentRound() >= 10){
 			if(game.getScorePlayer() >= game.getScoreKI()){
 				return game.getPlayer();
 			}else{
@@ -182,7 +187,7 @@ public class GameBeanImpl {
 	}
 	
 	public Avatar getLoser() {
-		if(game.getCurrentRound() == 10){
+		if(game.getCurrentRound() >= 10){
 			if(game.getScorePlayer() < game.getScoreKI()){
 				return game.getPlayer();
 			}else{
@@ -207,5 +212,10 @@ public class GameBeanImpl {
 		}else{
 			return game.getScoreKI();
 		}
+	}
+
+	public void setActivePlayer(Avatar activePlayer) {
+		this.activePlayer = activePlayer;
+		
 	}
 }

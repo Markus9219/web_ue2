@@ -1,3 +1,5 @@
+<%@page import="at.ac.tuwien.big.we15.lab2.api.impl.MessageType"%>
+<%@page import="at.ac.tuwien.big.we15.lab2.api.impl.Message"%>
 <%@page import="at.ac.tuwien.big.we15.lab2.api.Question"%>
 <%@page import="at.ac.tuwien.big.we15.lab2.api.Category"%>
 <%@page import ="at.ac.tuwien.big.we15.lab2.api.Avatar"%>
@@ -41,11 +43,37 @@
       <div role="main">
          <section id="gameinfo" aria-labelledby="winnerinfoheading">
             <h2 id="winnerinfoheading" class="accessibility">Gewinnerinformationen</h2>
-            <p class="user-info positive-change"><%=gameBean.getMessageLog() %> +<%=gameBean.getActiveQuestion().getValue() %> €</p>
-            <p class="user-info negative-change"><%=gameBean.getMessageLog() %> -<%=gameBean.getActiveQuestion().getValue() %> €</p>
+            
+            <%
+            List<Message> messageLog = gameBean.getMessageLog();
+            
+            // zeige nur die letzen drei
+            for(int i = 0; i < 3; i++){
+            	Message message;
+            	if(messageLog.size()-3+i<0){
+            		// dummy einfuegen falls weniger als 3 nachrichten
+            		message = new Message("", MessageType.NEUTRAL);	
+            	}else{
+            		message = messageLog.get(messageLog.size()-3+i);
+            	}
+            	
+            	String style;
+            	
+            	if(message.getType() == MessageType.POSITIVE)
+            		style = "user-info positive-change";
+            	else if (message.getType() == MessageType.NEGATIVE)
+            		style = "user-info negative-change";
+            	else
+            		style = "user-info";
+            	%>
+            	<p class="<%= style %>"><%= message.getText() %></p>
+            	<%
+            }
+            
+            %>
             <section class="playerinfo leader" aria-labelledby="winnerannouncement">
                <h3 id="winnerannouncement">Gewinner: <%=gameBean.getWinner().getName() %></h3>
-               <img class="avatar" src="<%=gameBean.getWinner().getImagePath() %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
+               <img class="avatar" src="<%= "img/avatar/" + gameBean.getWinner().getId() + ".png" %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
