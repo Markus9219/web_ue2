@@ -1,5 +1,6 @@
 package at.ac.tuwien.big.we15.lab2.api.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,30 +9,32 @@ import at.ac.tuwien.big.we15.lab2.api.Avatar;
 import at.ac.tuwien.big.we15.lab2.api.Category;
 import at.ac.tuwien.big.we15.lab2.api.Question;
 
-public class GameBean {
+public class GameBeanImpl {
 	private Game game;
 	private List<Category> categories;
 	private Question currentQuestion;
 	private int currentCategory;
-	private List<String> messageLog;
+	private List<Message> messageLog = new ArrayList<Message>();
 	
-	public GameBean(List<Category> categories) {
-		this.categories = categories;
+	public GameBeanImpl() {
 		Avatar player =  Avatar.BLACK_WIDOW;
 		Avatar ki = Avatar.DEADPOOL;
 		game = new Game(player, ki);
 	}
+	
+	public void setCategories(List<Category> categories) {
+		System.out.println("setCategories wird aufgerufen aber zu spaet wahrscheinlich.");
+		this.categories = categories;
+	}
+	
+//	public GameBeanImpl(List<Category> categories) {
+//		this.categories = categories;
+//		Avatar player =  Avatar.BLACK_WIDOW;
+//		Avatar ki = Avatar.DEADPOOL;
+//		game = new Game(player, ki);
+//	}
 
-	// start new
-	public void startNewGame() {
-		
-	}
-	
-	// get questions
-	public List<Category> getQuestions() {
-		return categories;
-	}
-	
+
 	// select question
 	public Question selectQuestion(int id){
 		for(Category category:categories){
@@ -74,10 +77,10 @@ public class GameBean {
 		}
 		if(correct == true){
 			game.increaseScorePlayer(currentQuestion.getValue());
-			messageLog.add("Du hast richtig geantwortet: +" + currentQuestion.getValue() + "€");
+			messageLog.add(new Message("Du hast richtig geantwortet: +" + currentQuestion.getValue() + "€", MessageType.POSITIVE));
 		}else{
 			game.increaseScorePlayer(-currentQuestion.getValue());
-			messageLog.add("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€");
+			messageLog.add(new Message("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€", MessageType.NEGATIVE));
 		}
 		categories.get(currentCategory).removeQuestion(currentQuestion);
 		return correct;
@@ -91,13 +94,17 @@ public class GameBean {
 			}
 		}
 		int r = (int) (Math.random() * questionsKI.size());
+		// Deadpool hat TUWIEN für € 1000 gewählt.
+		String nachricht = game.getKI().getName() + " hat " + questionsKI.get(r).getCategory().getName() + " für € " + questionsKI.get(r).getValue() + " gewählt.";
+		messageLog.add(new Message(nachricht, MessageType.NEUTRAL));
+		
 		double c = Math.random();
 		if(c > 0.5){
 			game.increaseScoreKI(questionsKI.get(r).getValue());
-			messageLog.add("Deadpool hat richtig geantwortet: +" + questionsKI.get(r).getValue() + "€");
+			messageLog.add(new Message("Deadpool hat richtig geantwortet: +" + questionsKI.get(r).getValue() + "€", MessageType.POSITIVE));
 		}else{
 			game.increaseScoreKI(-questionsKI.get(r).getValue());
-			messageLog.add("Deadpool hat falsch geantwortet: -" + questionsKI.get(r).getValue() + "€");
+			messageLog.add(new Message("Deadpool hat falsch geantwortet: -" + questionsKI.get(r).getValue() + "€", MessageType.NEGATIVE));
 		}
 		for(int i = 0; i < categories.size(); i++){
 			if(categories.get(i).getQuestions().contains(questionsKI.get(r))){
@@ -140,7 +147,7 @@ public class GameBean {
 	 * Gibt die Statusmeldungen zurueck. (z.B. Deadpool hat falsch geantwortet)
 	 * @return
 	 */
-	public List<String> getMessageLog() {
+	public List<Message> getMessageLog() {
 		return messageLog;
 	}
 	

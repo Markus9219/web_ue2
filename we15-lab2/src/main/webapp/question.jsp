@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="gameBean" scope="session" type="at.ac.tuwien.big.we15.lab2.api.impl.GameBean" class="at.ac.tuwien.big.we15.lab2.api.impl.GameBean"/>
+<jsp:useBean id="gameBean" scope="session" type="at.ac.tuwien.big.we15.lab2.api.impl.GameBeanImpl" class="at.ac.tuwien.big.we15.lab2.api.impl.GameBeanImpl"/>
 
 
 

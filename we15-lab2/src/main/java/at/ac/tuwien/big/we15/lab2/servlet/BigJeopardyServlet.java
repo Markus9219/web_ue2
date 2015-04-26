@@ -8,6 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.SessionCookieConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,40 +16,59 @@ import javax.servlet.http.HttpServletResponse;
 import at.ac.tuwien.big.we15.lab2.api.Category;
 import at.ac.tuwien.big.we15.lab2.api.JeopardyFactory;
 import at.ac.tuwien.big.we15.lab2.api.QuestionDataProvider;
-import at.ac.tuwien.big.we15.lab2.api.impl.GameBean;
+import at.ac.tuwien.big.we15.lab2.api.impl.GameBeanImpl;
 import at.ac.tuwien.big.we15.lab2.api.impl.ServletJeopardyFactory;
 
 public class BigJeopardyServlet extends HttpServlet{
-	ServletContext servletcontext = getServletContext();
-	JeopardyFactory factory = new ServletJeopardyFactory(servletcontext);
-	QuestionDataProvider provider = factory.createQuestionDataProvider();
-	List<Category> categories = provider.getCategoryData();
+	private List<Category> categories;
 
 	private static final long serialVersionUID = 1L;
 	
 	
 	public BigJeopardyServlet(){
-
+		System.out.println("constructor");
+//		getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
 	}
 	
 	@Override
+	public void init() throws ServletException {
+        super.init();
+        System.out.println("init");
+        
+        ServletContext servletcontext = getServletContext();
+    	JeopardyFactory factory = new ServletJeopardyFactory(servletcontext);
+    	QuestionDataProvider provider = factory.createQuestionDataProvider();
+    	categories = provider.getCategoryData();
+        
+//        getServletContext().setAttribute("categories", categories);
+//        getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
+    }
+	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-		GameBean bean = (GameBean) request.getSession(true).getAttribute("gameBean");
-		
+		System.out.println("in der doGet Methode");
+		GameBeanImpl bean = (GameBeanImpl) request.getSession(true).getAttribute("gameBean");
+		request.getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
+		request.getSession().setAttribute("test123", "ein text");
 		if(bean == null) {
-			bean = new GameBean(categories);
+			bean = new GameBeanImpl();
+			bean.setCategories(categories);
 			request.getSession().setAttribute("gameBean", bean);
 		}
+		
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		GameBean bean = (GameBean) request.getSession(true).getAttribute("gameBean");
-		
+		System.out.println("in der doPost methode");
+		GameBeanImpl bean = (GameBeanImpl) request.getSession(true).getAttribute("gameBean");
+		request.getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
 		String nextPage = "/login.jsp";
 		
 		if(bean == null) {
-			bean = new GameBean(categories);
+			bean = new GameBeanImpl();
+			bean.setCategories(categories);
 			request.getSession().setAttribute("gameBean", bean);
 		}
 		
@@ -56,7 +76,8 @@ public class BigJeopardyServlet extends HttpServlet{
 		
 		if(action != null) {
 			if(action.equals("newGame")) {
-				bean = new GameBean(categories);
+				bean = new GameBeanImpl();
+				bean.setCategories(categories);
 				nextPage = "/jeopardy.jsp";
 			}else if (action.equals("answerQuestion")) {
 				String[] answerIds = request.getParameterValues("answerIds");
