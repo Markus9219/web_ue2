@@ -93,7 +93,9 @@
                </ul>
                <input id="timeleftvalue" type="hidden" value="100"/>
                <input class="greenlink formlink clickable" name="answer_submit" id="next" type="submit" value="antworten" accesskey="s"/>
-               <input type="hidden" value="answerQuestion" name="action"/>               
+               <input type="hidden" value="answerQuestion" name="action"/>
+               <input name="Id" type="hidden" value="<%=gameBean.getActiveQuestion().getId()%>"/>
+                              
             </form>
          </section>
             

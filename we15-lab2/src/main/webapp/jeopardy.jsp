@@ -107,6 +107,8 @@
                </fieldset>               
                <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
                <input type="hidden" value="selectQuestion" name="action"/>
+               <input name="Id" type="hidden" value="<%=gameBean.getActiveQuestion().getId()%>"/>
+               
             </form>
          </section>
          
