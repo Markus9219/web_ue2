@@ -33,16 +33,15 @@ public class GameBean {
 	}
 	
 	// select question
-	public Question selectQuestion(int id, String categoryName){
-		int category = 0;
-		for(int i = 0; i < categories.size(); i++){
-			if(categories.get(i).getName().equals(categoryName)){
-				category = i;
+	public Question selectQuestion(int id){
+		for(Category category:categories){
+			for(Question question:category.getQuestions()){
+				if(question.getId() == id) {
+					return question;
+				}
 			}
 		}
-		currentCategory = category;
-		currentQuestion = categories.get(category).getQuestions().get(id);
-		return currentQuestion;
+		return null;
 	}
 	
 	// answer question

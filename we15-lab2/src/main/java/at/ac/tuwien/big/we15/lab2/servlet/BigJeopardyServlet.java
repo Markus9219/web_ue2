@@ -72,8 +72,7 @@ public class BigJeopardyServlet extends HttpServlet{
 				}
 			}else if (action.equals("selectQuestion")) {
 				int qId = Integer.parseInt(request.getParameter("questionId"));
-				String categoryName = request.getParameter("categoryName");
-				bean.selectQuestion(qId, categoryName);
+				bean.selectQuestion(qId);
 				nextPage = "/question.jsp";
 			}else if (action.equals("login")){
 				nextPage = "/jeopardy.jsp";
