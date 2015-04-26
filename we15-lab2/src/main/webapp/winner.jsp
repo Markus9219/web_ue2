@@ -45,7 +45,7 @@
             <p class="user-info negative-change"><%=gameBean.getMessageLog() %> -<%=gameBean.getActiveQuestion().getValue() %> €</p>
             <section class="playerinfo leader" aria-labelledby="winnerannouncement">
                <h3 id="winnerannouncement">Gewinner: <%=gameBean.getWinner().getName() %></h3>
-               <img class="avatar" src="<%=gameBean.getWinner().getImageFull() %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
+               <img class="avatar" src="<%=gameBean.getWinner().getImagePath() %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -59,7 +59,7 @@
             </section>
             <section class="playerinfo" aria-labelledby="loserheading">
                <h3 id="loserheading" class="accessibility">Verlierer: <%=gameBean.getLoser().getName() %></h3>
-               <img class="avatar" src="<%=gameBean.getLoser().getImageHead() %>" alt="Spieler-Avatar <%=gameBean.getLoser().getName() %>" />
+               <img class="avatar" src="<%=gameBean.getLoser().getImagePath() %>" alt="Spieler-Avatar <%=gameBean.getLoser().getName() %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>

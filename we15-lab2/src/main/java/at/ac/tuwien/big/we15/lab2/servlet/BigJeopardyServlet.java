@@ -55,6 +55,7 @@ public class BigJeopardyServlet extends HttpServlet{
 			bean.setCategories(categories);
 			request.getSession().setAttribute("gameBean", bean);
 		}
+		request.getServletContext().setAttribute("categories", categories);
 		
 		
 	}
@@ -64,6 +65,7 @@ public class BigJeopardyServlet extends HttpServlet{
 		System.out.println("in der doPost methode");
 		GameBeanImpl bean = (GameBeanImpl) request.getSession(true).getAttribute("gameBean");
 		request.getServletContext().setAttribute("test123", "abcdefghijklmnopqrstuvwxyz");
+		request.getServletContext().setAttribute("categories", categories);
 		String nextPage = "/login.jsp";
 		
 		if(bean == null) {
@@ -82,8 +84,10 @@ public class BigJeopardyServlet extends HttpServlet{
 			}else if (action.equals("answerQuestion")) {
 				String[] answerIds = request.getParameterValues("answerIds");
 				List<Integer> answers = new ArrayList<Integer>();
-				for(String a:answerIds) {
-					answers.add(Integer.parseInt(a));
+				if(answerIds != null){
+					for(String a:answerIds) {
+						answers.add(Integer.parseInt(a));
+					}
 				}
 				bean.answerQuestion(answers);
 				if(bean.getWinner() != null) {
@@ -99,7 +103,7 @@ public class BigJeopardyServlet extends HttpServlet{
 				nextPage = "/jeopardy.jsp";
 			}
 		}
-		
+		System.out.println("Weiterleiten auf " + nextPage);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
 		dispatcher.forward(request, response);
 	}

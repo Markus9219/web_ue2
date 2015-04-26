@@ -57,17 +57,17 @@
                if(scoreNpc > scorePlayer) {
             	   score1 = scoreNpc;
             	   name1 = gameBean.getNpcAvatar().getName();
-            	   img1 = gameBean.getNpcAvatar().getImageHead();
+            	   img1 = gameBean.getNpcAvatar().getImagePath();
             	   score2 = scorePlayer;
             	   name2 = gameBean.getPlayerAvatar().getName();
-            	   img2 = gameBean.getPlayerAvatar().getImageHead();
+            	   img2 = gameBean.getPlayerAvatar().getImagePath();
                } else {
             	   score2 = scoreNpc;
             	   name2 = gameBean.getNpcAvatar().getName();
-            	   img2 = gameBean.getNpcAvatar().getImageHead();
+            	   img2 = gameBean.getNpcAvatar().getImagePath();
             	   score1 = scorePlayer;
             	   name1 = gameBean.getPlayerAvatar().getName();
-            	   img1 = gameBean.getPlayerAvatar().getImageHead();
+            	   img1 = gameBean.getPlayerAvatar().getImagePath();
                }
                %>
                
@@ -140,6 +140,8 @@
         
                List<Category> categories = (List<Category>) request.getServletContext().getAttribute("categories");
                
+               System.out.println("category size: " + categories.size());
+               
 	         for(Category cat:categories) {
 	        	 String catName = cat.getName();
 	        	 List<Question> questions = cat.getQuestions();
@@ -152,7 +154,7 @@
 	        		 int questionValue = question.getValue();
 	        		 int questionId = question.getId();
 	        		 %>
-	                 <li><input name="questionId" id="question_<%=questionId%>" value="<%=questionId%>" type="radio" disabled="disabled" /><label class="tile clickable" for="question_<%=questionId%>">€ <%=questionValue%></label></li>
+	                 <li><input name="questionId" id="question_<%=questionId%>" value="<%=questionId%>" type="radio" <%= (gameBean.wasAnswered(questionId)) ? "disabled=\"disabled\"" : "" %> /><label class="tile clickable" for="question_<%=questionId%>">€ <%=questionValue%></label></li>
 	        		 <%
 	        	 }
 				 %>			

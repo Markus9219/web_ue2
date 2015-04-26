@@ -90,6 +90,10 @@ public enum Avatar {
 		return imageFull;
 	}
 	
+	public String getImagePath() {
+		return "img/avatar/" + getImageHead();
+	}
+	
 	public boolean isVillain() {
 		return isVillain;
 	}

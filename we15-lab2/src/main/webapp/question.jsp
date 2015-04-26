@@ -38,35 +38,60 @@
 		</nav>
       
       <!-- Content -->
+       <% 
+       // Fuehrt der spieler oder der NPC
+       int scoreNpc = gameBean.getScoreNpc();
+       int scorePlayer = gameBean.getScorePlayer();
+       
+       String name1, name2, img1, img2;
+       int score1, score2;
+       
+       if(scoreNpc > scorePlayer) {
+    	   score1 = scoreNpc;
+    	   name1 = gameBean.getNpcAvatar().getName();
+    	   img1 = gameBean.getNpcAvatar().getImagePath();
+    	   score2 = scorePlayer;
+    	   name2 = gameBean.getPlayerAvatar().getName();
+    	   img2 = gameBean.getPlayerAvatar().getImagePath();
+       } else {
+    	   score2 = scoreNpc;
+    	   name2 = gameBean.getNpcAvatar().getName();
+    	   img2 = gameBean.getNpcAvatar().getImagePath();
+    	   score1 = scorePlayer;
+    	   name1 = gameBean.getPlayerAvatar().getName();
+    	   img1 = gameBean.getPlayerAvatar().getImagePath();
+       }
+       %>
+      
       <div role="main"> 
          <!-- info -->
          <section id="gameinfo" aria-labelledby="gameinfoinfoheading">
             <h2 id="gameinfoinfoheading" class="accessibility">Spielinformationen</h2>
             <section id="firstplayer" class="playerinfo leader" aria-labelledby="firstplayerheading">
                <h3 id="firstplayerheading" class="accessibility">Führender Spieler</h3>
-               <img class="avatar" src="<%= gameBean.getWinner().getImageHead() %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
+               <img class="avatar" src="<%= img1 %>" alt="<%= name1 %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername"><%= gameBean.getPlayerAvatar().getName() %> (Du)</td>
+                     <td class="playername"><%= name1 %> (Du)</td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
-                     <td class="playerpoints"><%= gameBean.getScorePlayer() %> €</td>
+                     <td class="playerpoints"><%= score1 %> €</td>
                   </tr>
                </table>
             </section>
             <section id="secondplayer" class="playerinfo" aria-labelledby="secondplayerheading">
                <h3 id="secondplayerheading" class="accessibility">Zweiter Spieler</h3>
-               <img class="avatar" src="img/avatar/deadpool_head.png" alt="Spieler-Avatar Deadpool" />
+               <img class="avatar" src="<%= img2 %>" alt="<%= name2 %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
-                     <td class="playername"><%=gameBean.getNpcAvatar().getName() %></td>
+                     <td class="playername"><%= name2 %></td>
                   </tr>
                   <tr>
                      <th class="accessibility">Spielerpunkte</th>
-                     <td class="playerpoints"><%= gameBean.getScoreNpc() %> €</td>
+                     <td class="playerpoints"><%= score2 %> €</td>
                   </tr>
                </table>
             </section>

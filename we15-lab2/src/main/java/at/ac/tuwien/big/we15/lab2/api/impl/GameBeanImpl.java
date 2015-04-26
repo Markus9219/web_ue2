@@ -13,8 +13,8 @@ public class GameBeanImpl {
 	private Game game;
 	private List<Category> categories;
 	private Question currentQuestion;
-	private int currentCategory;
 	private List<Message> messageLog = new ArrayList<Message>();
+	private List<Question> answered = new ArrayList<Question>();
 	
 	public GameBeanImpl() {
 		Avatar player =  Avatar.BLACK_WIDOW;
@@ -35,11 +35,21 @@ public class GameBeanImpl {
 //	}
 
 
+	public boolean wasAnswered(int id) {
+		for(Question q:answered){
+			if(q.getId() == id)
+				return true;
+		}
+		
+		return false;
+	}
+	
 	// select question
 	public Question selectQuestion(int id){
 		for(Category category:categories){
 			for(Question question:category.getQuestions()){
 				if(question.getId() == id) {
+					currentQuestion = question;
 					return question;
 				}
 			}
@@ -62,17 +72,15 @@ public class GameBeanImpl {
 	}
 	
 	public boolean playerTurn(List<Integer> answerIds){
-		List<Answer> answers = currentQuestion.getAllAnswers();
-		boolean correct = false;
+		List<Answer> answers = currentQuestion.getCorrectAnswers();
+		
+		boolean correct = true;
 		if(answers.size() != answerIds.size()){
 			correct = false;
 		}else{
-			for(int i = 0; i < answerIds.size(); i++){
-				for(int j = 0; j < answers.size(); j++){
-					if(answers.get(j).getId() == answerIds.get(i)){
-						correct = true;
-					}
-				}
+			for(Answer correctAnswer:answers) {
+				if(!answerIds.contains(correctAnswer.getId()))
+					correct = false;
 			}
 		}
 		if(correct == true){
@@ -82,12 +90,13 @@ public class GameBeanImpl {
 			game.increaseScorePlayer(-currentQuestion.getValue());
 			messageLog.add(new Message("Du hast falsch geantwortet: -" + currentQuestion.getValue() + "€", MessageType.NEGATIVE));
 		}
-		categories.get(currentCategory).removeQuestion(currentQuestion);
+//		categories.get(currentCategory).removeQuestion(currentQuestion);
+		answered.add(currentQuestion);
 		return correct;
 	}
 	
 	public void startKITurn(){
-		List<Question> questionsKI = null;
+		List<Question> questionsKI = new ArrayList<Question>();
 		for(int i = 0; i < categories.size(); i++){
 			for(int j = 0; j < categories.get(i).getQuestions().size(); j++){
 				questionsKI.add(categories.get(i).getQuestions().get(j));
@@ -108,7 +117,8 @@ public class GameBeanImpl {
 		}
 		for(int i = 0; i < categories.size(); i++){
 			if(categories.get(i).getQuestions().contains(questionsKI.get(r))){
-				categories.get(i).getQuestions().remove(questionsKI.get(r));
+//				categories.get(i).getQuestions().remove(questionsKI.get(r));
+				answered.add(questionsKI.get(r));
 			}
 		}
 	}
