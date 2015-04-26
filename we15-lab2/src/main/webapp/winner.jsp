@@ -73,7 +73,7 @@
             %>
             <section class="playerinfo leader" aria-labelledby="winnerannouncement">
                <h3 id="winnerannouncement">Gewinner: <%=gameBean.getWinner().getName() %></h3>
-               <img class="avatar" src="<%= "img/avatar/" + gameBean.getWinner().getId() + ".png" %>" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" />
+               <img class="avatar" alt="Spieler-Avatar <%=gameBean.getWinner().getName() %>" src="<%= "img/avatar/" + gameBean.getWinner().getId() + ".png" %>" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
