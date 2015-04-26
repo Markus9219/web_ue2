@@ -78,7 +78,7 @@
       <% Question currentQuestion = gameBean.getActiveQuestion();%>
       
       <section id="question" aria-labelledby="questionheading">
-  a          <form id="questionform" action="BigJeopardyServlet" method="post">
+            <form id="questionform" action="BigJeopardyServlet?action=answerQuestion" method="post">
                <h2 id="questionheading" class="accessibility">Frage</h2>
                <p id="questiontype"><%=currentQuestion.getCategory().getName() %> für € <%=currentQuestion.getValue() %></p>
                <p id="questiontext"><%=currentQuestion.getText()%></p>
@@ -86,15 +86,13 @@
                		<% int i = 1; for(Answer answer : currentQuestion.getAllAnswers()){
                			i++;
                			%><li>
-               			<input name="answers" id="answer_<%=i%>" type="checkbox"/><label class="tile clickable" for="answer_<%=i%>"><%=answer.getText()%></label></li>
+               			<input name="answerIds" value="<%=i %>" id="answer_<%=i%>" type="checkbox"/><label class="tile clickable" for="answer_<%=i%>"><%=answer.getText()%></label></li>
                		<% 
                		}           
                		%>
                </ul>
                <input id="timeleftvalue" type="hidden" value="100"/>
                <input class="greenlink formlink clickable" name="answer_submit" id="next" type="submit" value="antworten" accesskey="s"/>
-               <input type="hidden" value="answerQuestion" name="action"/>
-               <input name="Id" type="hidden" value="<%=gameBean.getActiveQuestion().getId()%>"/>
                               
             </form>
          </section>

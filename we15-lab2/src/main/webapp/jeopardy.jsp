@@ -76,7 +76,7 @@
             <p class="user-info positive-change"><%=gameBean.getMessageLog() %> +<%=gameBean.getActiveQuestion().getValue() %> €</p>
             <p class="user-info negative-change"><%=gameBean.getMessageLog() %> -<%=gameBean.getActiveQuestion().getValue() %> €</p>
             <p class="user-info"><%=gameBean.getNpcAvatar().getName() %> hat <%=gameBean.getActiveQuestion().getCategory() %> für € <%=gameBean.getActiveQuestion().getValue() %> gewählt.</p>
-            <form id="questionform" action="BigJeopardyServlet" method="post">
+            <form id="questionform" action="BigJeopardyServlet?action=selectQuestion" method="post">
                
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>
@@ -95,7 +95,7 @@
         		 int questionValue = question.getValue();
         		 int questionId = question.getId();
         		 %>
-                 <li><input name="question_selection" id="question_<%=questionId%>" value="<%=questionId%>" type="radio" disabled="disabled" /><label class="tile clickable" for="question_<%=questionId%>">€ <%=questionValue%></label></li>
+                 <li><input name="questionId" id="question_<%=questionId%>" value="<%=questionId%>" type="radio" disabled="disabled" /><label class="tile clickable" for="question_<%=questionId%>">€ <%=questionValue%></label></li>
         		 <%
         	 }
 			%>			
@@ -106,8 +106,6 @@
          %>     
                </fieldset>               
                <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
-               <input type="hidden" value="selectQuestion" name="action"/>
-               <input name="Id" type="hidden" value="<%=gameBean.getActiveQuestion().getId()%>"/>
                
             </form>
          </section>
