@@ -3,7 +3,23 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           controllers.Application.authentication()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /public/*file               controllers.Assets.at(path="/public", file)
+GET     /register					controllers.Application.register()
+
+#Seitenfluss
+GET		/jeopardy					controllers.Application.jeopardy()
+POST	/jeopardy					controllers.Application.jeopardy()
+
+POST	/question					controllers.Application.question()
+
+POST	/login						controllers.Application.authentication()
+GET		/login						controllers.Application.authentication()
+
+POST	/loginsubmit				controllers.Application.loginsubmit()
+
+POST	/submituser					controllers.Application.submituser()
+
+GET 	/logout						controllers.Application.logout()
