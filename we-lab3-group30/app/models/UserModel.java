@@ -10,13 +10,22 @@ import javax.persistence.Id;
 import at.ac.tuwien.big.we15.lab2.api.Avatar;
 import at.ac.tuwien.big.we15.lab2.api.User;
 
+import play.data.validation.*;
+
 @Entity
 @Access(AccessType.FIELD)
 public class UserModel implements User{
 	@Id
 	private long id;
 	
+	@Constraints.MinLength(4)
+	@Constraints.MaxLength(8)
+	@Constraints.Required
 	private String name;
+	
+	@Constraints.MinLength(4)
+	@Constraints.MaxLength(8)
+	@Constraints.Required
 	private String password;
 	private String avatarId;
 	
