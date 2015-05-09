@@ -4,6 +4,7 @@ import at.ac.tuwien.big.we15.lab2.api.JeopardyFactory;
 import at.ac.tuwien.big.we15.lab2.api.JeopardyGame;
 import at.ac.tuwien.big.we15.lab2.api.Question;
 import at.ac.tuwien.big.we15.lab2.api.impl.PlayJeopardyFactory;
+import at.ac.tuwien.big.we15.lab2.api.User;
 import play.*;
 import play.cache.Cache;
 import play.data.DynamicForm;
@@ -11,6 +12,7 @@ import play.data.Form;
 import play.mvc.*;
 import views.html.*;
 import views.html.helper.form;
+import models.UserModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,21 @@ public class Application extends Controller {
 //	public static Result authentication(){
 //		return AuthenticationController.authentication();
 //	}
-	
+
+    @play.db.jpa.Transactional
+    public static Result login(){
+        Form<Login> form = Form.form(Login.class).bindFromRequest();
+        try{
+            if(form.hasErrors()){
+                return badRequest(authentication.render(form));
+            }
+        }catch(Exception e){
+            return badRequest(authentication.render(form));
+        }
+        session("username", form.get().username);
+        return null;//TODO
+    }
+
     public static Result jeopardy(){
     	String username = session().get("username");
     	JeopardyGame game;
@@ -59,7 +75,16 @@ public class Application extends Controller {
     	game.chooseHumanQuestion(questionID);
     	return ok(views.html.question.render());
     }
-    
+
+    public static class Login{
+        public String username;
+        public String password;
+    }
+
+
+    public static Result languageChanged(){
+
+    }
     
 //    public static class Question{
 //    	public int questionSelected;

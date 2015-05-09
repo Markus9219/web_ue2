@@ -59,4 +59,5 @@ public class AuthenticationController extends Controller{
 		public String password;
 	}
 
+
 }

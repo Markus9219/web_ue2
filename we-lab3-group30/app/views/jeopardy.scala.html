@@ -1,4 +1,4 @@
-@(game : at.ac.tuwien.big.we15.lab2.api.JeopardyGame, form : Form[Question])
+@(game:at.ac.tuwien.big.we15.lab2.api.JeopardyGame)
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
             <section id="firstplayer" class="playerinfo leader" aria-labelledby="firstplayerheading">
                <h3 id="firstplayerheading" class="accessibility">Führender Spieler</h3>
                
-               <img class="avatar" src="@routes.Assets.at("images/avatar/" + game.getLeader().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getLeader().getUser().getName()" />
+               <img class="avatar" src="images/avatar/ + game.getLeader().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getLeader().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -51,7 +51,7 @@
             </section>
             <section id="secondplayer" class="playerinfo" aria-labelledby="secondplayerheading">
                <h3 id="secondplayerheading" class="accessibility">Zweiter Spieler</h3>
-               <img class="avatar" src="@routes.Assets.at("images/avatar/" + game.getSecond().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getSecond().getUser().getName()" />
+               <img class="avatar" src="images/avatar/ + game.getSecond().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getSecond().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -69,9 +69,21 @@
          <!-- Question -->
          <section id="question-selection" aria-labelledby="questionheading">
             <h2 id="questionheading" class="black accessibility">Jeopardy</h2>
-            <p class="user-info positive-change">Du hast richtig geantwortet: +1000 €</p>
-            <p class="user-info negative-change">Deadpool hat falsch geantwortet: -500 €</p>
-            <p class="user-info">Deadpool hat TUWIEN für € 1000 gewählt.</p>
+
+             @if(!game.isRoundStart()) {
+                @if(game.getHumanPlayer().getLatestProfitChange() < 0) {
+                    <p class="realUser-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
+                } else {
+                    <p class="realUser-info positive-change">Du hast richtig geantwortet: +@game.getHumanPlayer().getLatestProfitChange()€</p>
+                }
+
+                @if(game.getMarvinPlayer().getLatestProfitChange() < 0) {
+                   <p class="realUser-info negative-change">Du hast falsch geantwortet: @game.getMarvinPlayer().getLatestProfitChange()€</p>
+                } else {
+                   <p class="realUser-info positive-change">Du hast richtig geantwortet: +@game.getMarvinPlayer().getLatestProfitChange()€</p>
+                }
+             }
+            <p class="user-info">@game.getMarvinPlayer().getUser().getName() hat @game.getMarvinPlayer().getChosenQuestion().getCategory().getName() für € @game.getMarvinPlayer().getChosenQuestion().getValue() gewählt.</p>
             
             
             <form id="questionform" action="question.xhtml" method="post">
@@ -95,10 +107,7 @@
                </section>
                
                }
-               
-               
-               
-               
+
                </fieldset>               
                <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
             </form>

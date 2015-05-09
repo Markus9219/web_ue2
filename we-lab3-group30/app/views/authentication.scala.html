@@ -1,4 +1,5 @@
-@(form: AuthenticationController.Login)
+@(form: Form[UserModel])
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -24,19 +25,22 @@
         <div role="main">
             <section id="login" aria-labelledby="loginheading">
                <h2 id="loginheading" class="accessibility">Login</h2>
-               @helper.form(routes.AuthenticationController.authenticate){
+               @helper.form(action = routes.AuthenticationController.authenticate()){
                     <fieldset>
                         <legend id="logindata">Login</legend>
-                        <label for="username">Benutzername:</label>
-                        <input name="username" id="username" type="text" required="required" value="@form("username").value"/>
-                        <label for="password">Passwort:</label>
-                        <input name="password" id="password" type="password" required="required" value="@form("password").value"/>
+                        @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
+                        @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
+
                         <input name="login" id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
                     </fieldset>
                }
+
                @if(form.hasGlobalErrors){
-               		<p>@form.globalError.message</p>
+               		<p id="loginError">
+                        @form.globalError.message
+                    </p>
                }
+
             </section>
             <!-- Register section -->
             <section id="registerforward" aria-labelledby="registerheading">
