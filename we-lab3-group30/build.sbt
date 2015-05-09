@@ -11,8 +11,12 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "com.google.code.gson" % "gson" % "2.2"
+  "com.google.code.gson" % "gson" % "2.2",
+  javaCore,
+  javaJpa,
+  "org.hibernate" % "hibernate-entitymanager" % "4.3.1.Final"
 )
 
 TwirlKeys.templateImports += "scala.collection._"
+
 TwirlKeys.templateImports += "at.ac.tuwien.big.we15.lab2.api._"
