@@ -18,6 +18,11 @@ import java.util.Map;
 
 public class Application extends Controller {
 	
+	public static Result authentication(){
+		return AuthenticationController.authentication();
+	}
+	
+	
     @Security.Authenticated(Authenticator.class)
     public static Result jeopardy(){
     	String id = session().get("game");

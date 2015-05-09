@@ -13,7 +13,7 @@ public class Authenticator extends Security.Authenticator{
 	
 	@Override
 	public Result onUnauthorized(Context arg0){
-		return redirect(routes.Application.authentication());
+		return redirect(routes.Application.authentication();
 	}
 
 }
