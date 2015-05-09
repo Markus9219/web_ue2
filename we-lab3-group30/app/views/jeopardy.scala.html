@@ -79,12 +79,12 @@
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>
                
-               @forloop(categories <- game.getCategories()) {                
+               @for(categories <- game.getCategories()) {                
                 
                <section class="questioncategory" aria-labelledby="tvheading">
-                  <h3 id="categories.getName()+heading" class="tile category-title"><span class="accessibility">Kategorie: </span>categories.getName()</h3>
+                  <h3 id="@categories.getName()+heading" class="tile category-title"><span class="accessibility">Kategorie: </span>@categories.getName()</h3>
                   <ol class="category_questions">
-                  @forloop(questions <- categories.getQuestions()){
+                  @for(questions <- categories.getQuestions()){
                      <li><input name="question_selection" id="question_@questions.getId()" value="@questions.getId()" type="radio" 
 						@if(game.hasBeenChosen(questions)){
 							disabled="disabled"
