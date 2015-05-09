@@ -16,8 +16,6 @@ import play.data.validation.*;
 @Access(AccessType.FIELD)
 public class UserModel implements User{
 	@Id
-	private long id;
-	
 	@Constraints.MinLength(4)
 	@Constraints.MaxLength(8)
 	@Constraints.Required
