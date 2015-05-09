@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class Application extends Controller {
 	
-    
+    @Security.Authenticated(Authenticator.class)
     public static Result jeopardy(){
     	String id = session().get("game");
     	JeopardyGame game;
