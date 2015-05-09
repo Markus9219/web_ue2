@@ -37,7 +37,7 @@
             <section id="firstplayer" class="playerinfo leader" aria-labelledby="firstplayerheading">
                <h3 id="firstplayerheading" class="accessibility">Führender Spieler</h3>
                
-               <img class="avatar" src="img/avatar/@game.getLeader().getUser().getAvatar()" alt="Spieler-Avatar @game.getLeader().getUser().getName()" />
+               <img class="avatar" src="@routes.Assets.at("images/avatar/" + game.getLeader().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getLeader().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -51,7 +51,7 @@
             </section>
             <section id="secondplayer" class="playerinfo" aria-labelledby="secondplayerheading">
                <h3 id="secondplayerheading" class="accessibility">Zweiter Spieler</h3>
-               <img class="avatar" src="img/avatar/@game.getSecond().getUser().getAvatar()" alt="Spieler-Avatar @game.getSecond().getUser().getName()" />
+               <img class="avatar" src="@routes.Assets.at("images/avatar/" + game.getSecond().getAvatar().getImageHead())" alt="Spieler-Avatar @game.getSecond().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -79,18 +79,25 @@
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>
                
-               
+               @forloop(categories <- game.getCategories()) {                
+                
                <section class="questioncategory" aria-labelledby="tvheading">
-                  <h3 id="tvheading" class="tile category-title"><span class="accessibility">Kategorie: </span>TV</h3>
+                  <h3 id="categories.getName()+heading" class="tile category-title"><span class="accessibility">Kategorie: </span>categories.getName()</h3>
                   <ol class="category_questions">
-                  
-                  
-                     <li><input name="question_selection" id="question_1" value="1" type="radio" disabled="disabled" /><label class="tile clickable" for="question_1">€ 100</label></li>
-                     <li><input name="question_selection" id="question_2" value="2" type="radio"/><label class="tile clickable" for="question_2">€ 200</label></li>
-                     <li><input name="question_selection" id="question_3" value="3" type="radio"/><label class="tile clickable" for="question_3">€ 500</label></li>
-                     <li><input name="question_selection" id="question_4" value="4" type="radio"/><label class="tile clickable" for="question_4">€ 750</label></li>
-                  </ol>
+                  @forloop(questions <- categories.getQuestions()){
+                     <li><input name="question_selection" id="question_@questions.getId()" value="@questions.getId()" type="radio" 
+						@if(game.hasBeenChosen(questions)){
+							disabled="disabled"
+							}/>
+					<label class="tile clickable" for="question_@questions.getId()">€@questions.getValue()</label></li>
+                   }
+                   </ol>
                </section>
+               
+               }
+               
+               
+               
                
                </fieldset>               
                <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="wählen" accesskey="s" />
