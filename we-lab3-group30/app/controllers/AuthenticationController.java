@@ -12,7 +12,7 @@ import play.mvc.Result;
 public class AuthenticationController extends Controller{
 	
 	public static Result authentication(){
-		return ok(authentication.render(Form.form(Login.class)));
+		return ok(views.html.authentication.render(Form.form(Login.class)));
 	}
 	
 	@Transactional
@@ -26,7 +26,7 @@ public class AuthenticationController extends Controller{
 		}
 		
 		if(login.hasErrors()){
-			return badRequest(authentication.render(login));
+			return badRequest(views.html.authentication.render(login));
 		}else{
 			session().clear();
 			session("username", login.get().username);

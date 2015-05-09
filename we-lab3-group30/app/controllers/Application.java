@@ -36,7 +36,7 @@ public class Application extends Controller {
     	session("game", id);
     	
     	Cache.set(id, game);
-    	return ok(jeopardy.render(game, Form.form(Question.class)));    	
+    	return ok(views.html.jeopardy.render(game, Form.form(Question.class)));    	
     }
     
     private static JeopardyGame newGame(){
@@ -58,7 +58,7 @@ public class Application extends Controller {
     		game = (JeopardyGame) Cache.get(gId);
     	}
     	game.chooseHumanQuestion(questionID);
-    	return ok(question.render());
+    	return ok(views.html.question.render());
     }
     
     
