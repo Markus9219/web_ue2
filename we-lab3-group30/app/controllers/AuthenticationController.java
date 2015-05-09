@@ -3,11 +3,13 @@ package controllers;
 import javax.persistence.EntityManager;
 
 import models.UserModel;
+import play.cache.Cache;
 import play.data.Form;
 import play.data.validation.ValidationError;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 public class AuthenticationController extends Controller{
 	
@@ -45,9 +47,11 @@ public class AuthenticationController extends Controller{
 		}
 	}
 	
+	@Security.Authenticated(Authenticator.class)
 	public static Result logout(){
 		session().clear();
-		return redirect(routes.Application.authentication());
+		Cache.remove(request().username());
+		return redirect(routes.AuthenticationController.authentication());
 	}
 	
 	public static class Login{

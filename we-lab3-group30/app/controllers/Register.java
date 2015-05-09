@@ -19,7 +19,7 @@ public class Register extends Controller {
 		if(registerForm.hasErrors()) {
 			return badRequest(views.html.registration.render(registerForm));
 		}
-		
+
 		String username = registerData.getName();
 		EntityManager em = play.db.jpa.JPA.em();
 		
@@ -32,7 +32,7 @@ public class Register extends Controller {
 			return badRequest(views.html.registration.render(registerForm));
 		} else {
 			em.persist(registerData);
-			return ok();
+			return ok(views.html.authentication.render());
 		}
 	}
 }

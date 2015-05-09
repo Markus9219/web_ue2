@@ -16,26 +16,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Security.Authenticated(Authenticator.class)
 public class Application extends Controller {
 	
-	public static Result authentication(){
-		return AuthenticationController.authentication();
-	}
+//	public static Result authentication(){
+//		return AuthenticationController.authentication();
+//	}
 	
-	
-    @Security.Authenticated(Authenticator.class)
     public static Result jeopardy(){
-    	String id = session().get("game");
+    	String username = session().get("username");
     	JeopardyGame game;
-    	if(id == null){
-    		game = newGame();
+    	if(username == null){
+    		game = newGame();	
     	}else{
-    		game = (JeopardyGame) Cache.get(id);
+    		game = (JeopardyGame) Cache.get(username);
     	}
-    	id = session().get("username");
-    	session("game", id);
+    	username = request().username();
+    	session("username", username);
     	
-    	Cache.set(id, game);
+    	Cache.set(username, game);
     	return ok(views.html.jeopardy.render(game, Form.form(Question.class)));    	
     }
     
@@ -51,7 +50,7 @@ public class Application extends Controller {
     
     public static Result question(){
     	Form<Question> form = Form.form(Question.class).bindFromRequest();
-    	int questionID = form.get().questionSelected;
+    	int questionID = form.get().getId();
     	String gId = session().get("game");
     	JeopardyGame game = null;
     	if(gId != null){
@@ -62,8 +61,8 @@ public class Application extends Controller {
     }
     
     
-    public static class Question{
-    	public int questionSelected;
-    }
+//    public static class Question{
+//    	public int questionSelected;
+//    }
 
 }
