@@ -64,19 +64,19 @@
                </table>
             </section>
             <p id="round">Fragen: @game.getHumanPlayer().getAnsweredQuestions().size() / 10</p> 
-
+		</section>
          <!-- Question -->
          <section id="question-selection" aria-labelledby="questionheading">
             <h2 id="questionheading" class="black accessibility">Jeopardy</h2>
 
-             @if(false) {
-                @if(game.getHumanPlayer().getLatestProfitChange() < 0) {
+             @if(!game.isRoundStart()) {
+                @if(game.getHumanPlayer().getLatestProfitChange() < 0 && game.getHumanPlayer().getLatestProfitChange() != null) {
                     <p class="user-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
                 } else {
                     <p class="user-info positive-change">Du hast richtig geantwortet: +@game.getHumanPlayer().getLatestProfitChange()€</p>
                 }
 
-                @if(game.getMarvinPlayer().getLatestProfitChange() < 0) {
+                @if(game.getMarvinPlayer().getLatestProfitChange() < 0 && game.getHumanPlayer().getLatestProfitChange() != null) {
                    <p class="user-info negative-change">@game.getMarvin().getName() hat falsch geantwortet: @game.getMarvinPlayer().getLatestProfitChange()€</p>
                 } else {
                    <p class="user-info positive-change">@game.getMarvin().getName() hat richtig geantwortet: +@game.getMarvinPlayer().getLatestProfitChange()€</p>
@@ -91,7 +91,7 @@
                
                @for(categories <- game.getCategories()) {                
                 
-               <section class="questioncategory" aria-labelledby="tvheading">
+               <section class="questioncategory" aria-labelledby="@categories.getName()+heading">
                   <h3 id="@categories.getName()+heading" class="tile category-title"><span class="accessibility">Kategorie: </span>@categories.getName()</h3>
                   <ol class="category_questions">
                   @for(questions <- categories.getQuestions()){
