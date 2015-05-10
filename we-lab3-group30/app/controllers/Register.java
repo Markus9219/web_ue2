@@ -12,6 +12,11 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 public class Register extends Controller {
+	
+	public static Result registration(){
+		return ok(views.html.registration.render(Form.form(UserModel.class)));
+	}
+	
 	@Transactional
 	public static Result register() {
 		Form<UserModel> registerForm = Form.form(UserModel.class);
