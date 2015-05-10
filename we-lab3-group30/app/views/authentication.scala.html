@@ -25,12 +25,15 @@
         <div role="main">
             <section id="login" aria-labelledby="loginheading">
                <h2 id="loginheading" class="accessibility">Login</h2>
-               @helper.form(action = routes.AuthenticationController.authenticate()){
+               @helper.form(routes.AuthenticationController.authenticate){
                     <fieldset>
                         <legend id="logindata">Login</legend>
-                        @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
-                        @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
-
+						
+						<label for="username">Benutzername:</label>
+                        <input name="username" id="username" type="text" required="required" value="@form("username")" />
+                        <label for="password">Passwort:</label>
+                        <input name="password" id="password" type="password" required="required" value="@form("password")" />
+						
                         <input name="login" id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
                     </fieldset>
                }
