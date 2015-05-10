@@ -51,7 +51,7 @@ public class Application extends Controller {
     	session("username", username);
     	
     	Cache.set(username, game);
-    	return ok(views.html.jeopardy.render(game, Form.form(Question.class)));    	
+    	return ok(views.html.jeopardy.render(game, Form.form(QuestionForm.class)));    	
     }
     
     private static JeopardyGame newGame(){
@@ -65,8 +65,8 @@ public class Application extends Controller {
     }
     
     public static Result question(){
-    	Form<Question> form = Form.form(Question.class).bindFromRequest();
-    	int questionID = form.get().getId();
+    	Form<QuestionForm> form = Form.form(QuestionForm.class).bindFromRequest();
+    	int questionID = form.get().questionSelected;
     	String gId = session().get("game");
     	JeopardyGame game = null;
     	if(gId != null){
@@ -76,18 +76,18 @@ public class Application extends Controller {
     	return ok(views.html.question.render());
     }
 
-    public static class Login{
+    public static class LoginForm {
         public String username;
         public String password;
     }
 
 
-    public static Result languageChanged(){
+    public static Result languageChanged() {
 
     }
     
-//    public static class Question{
-//    	public int questionSelected;
-//    }
+    public static class QuestionForm {
+    	public int questionSelected;
+    }
 
 }
