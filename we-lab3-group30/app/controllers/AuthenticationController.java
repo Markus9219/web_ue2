@@ -10,6 +10,7 @@ import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import play.Logger;
 
 public class AuthenticationController extends Controller{
 	
@@ -20,8 +21,6 @@ public class AuthenticationController extends Controller{
 	@Transactional
 	public static Result authenticate(){
 		Form<LoginForm> login = Form.form(LoginForm.class).bindFromRequest();
-		
-		
 		
 		if(!login.hasErrors()){
 			if(!isCorrect(login.get().username, login.get().password)){
@@ -36,6 +35,7 @@ public class AuthenticationController extends Controller{
 			session("username", login.get().username);
 			return redirect(routes.Application.jeopardy());
 		}
+		
 	}
 	
 	public static boolean isCorrect(String username, String password){
