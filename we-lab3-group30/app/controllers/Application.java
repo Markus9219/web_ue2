@@ -25,19 +25,19 @@ public class Application extends Controller {
 //		return AuthenticationController.authentication();
 //	}
 
-    @play.db.jpa.Transactional
-    public static Result login(){
-        Form<Login> form = Form.form(Login.class).bindFromRequest();
-        try{
-            if(form.hasErrors()){
-                return badRequest(authentication.render(form));
-            }
-        }catch(Exception e){
-            return badRequest(authentication.render(form));
-        }
-        session("username", form.get().username);
-        return null;//TODO
-    }
+//    @play.db.jpa.Transactional
+//    public static Result login(){
+//        Form<Login> form = Form.form(Login.class).bindFromRequest();
+//        try{
+//            if(form.hasErrors()){
+//                return badRequest(authentication.render(form));
+//            }
+//        }catch(Exception e){
+//            return badRequest(authentication.render(form));
+//        }
+//        session("username", form.get().username);
+//        return null;//TODO
+//    }
 
     public static Result jeopardy(){
     	String username = session().get("username");
