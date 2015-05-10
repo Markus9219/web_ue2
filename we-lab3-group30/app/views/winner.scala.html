@@ -46,7 +46,7 @@
                       
             <section class="playerinfo leader" aria-labelledby="winnerannouncement">
                <h3 id="winnerannouncement">Gewinner: @game.getWinner().getUser().getName()</h3>
-               <img class="avatar" src="img/avatar/@game.getWinner().getUser().getAvatar()" alt="Spieler-Avatar @game.getWinner().getUser().getName()" />
+               <img class="avatar" src="public/images/avatar/@game.getWinner().getUser().getAvatar().getImageFull()" alt="Spieler-Avatar @game.getWinner().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>
@@ -60,7 +60,7 @@
             </section>
             <section class="playerinfo" aria-labelledby="loserheading">
                <h3 id="loserheading" class="accessibility">Verlierer: @game.getLoser().getUser().getName()</h3>
-               <img class="avatar" src="img/avatar/@game.getLoser().getUser().getAvatar()" alt="Spieler-Avatar @game.getLoser().getUser().getName()" />
+               <img class="avatar" src="public/images/avatar/@game.getLoser().getUser().getAvatar().getImageHead()" alt="Spieler-Avatar @game.getLoser().getUser().getName()" />
                <table>
                   <tr>
                      <th class="accessibility">Spielername</th>

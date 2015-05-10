@@ -71,15 +71,22 @@ public class Application extends Controller {
 //    	String idString = Form.form().get("question_selection");
     	DynamicForm form = Form.form().bindFromRequest();
     	String idString = form.get("question_selection");
-    	Logger.debug("selected question = " + idString);
-    	int questionID = Integer.parseInt(idString);
+    	
     	String gId = session().get("username");
     	JeopardyGame game = null;
     	if(gId != null){
     		game = (JeopardyGame) Cache.get(gId);
     	}
-    	game.chooseHumanQuestion(questionID);
-    	return ok(views.html.question.render(game));
+    	
+    	if(idString != null) {
+	    	Logger.debug("selected question = " + idString);
+	    	int questionID = Integer.parseInt(idString);
+	    	
+	    	game.chooseHumanQuestion(questionID);
+	    	return ok(views.html.question.render(game));
+    	}else{
+    		return badRequest(views.html.jeopardy.render(game, Form.form(Application.QuestionForm.class)));
+    	}
     }
     
     public static Result answerQuestion() {

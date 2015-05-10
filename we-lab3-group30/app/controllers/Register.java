@@ -61,6 +61,7 @@ public class Register extends Controller {
 			Logger.info("Username bereits vorhanden");
 			return badRequest(views.html.registration.render(registerData));
 		} else {
+			Logger.debug("avatar: " + registerData.get().getAvatar());
 			em.persist(registerData.get());
 			Logger.info("Neuen User angelegt");
 			return ok(views.html.authentication.render(Form.form(LoginForm.class)));
