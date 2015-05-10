@@ -73,7 +73,7 @@ public class Application extends Controller {
     		game = (JeopardyGame) Cache.get(gId);
     	}
     	game.chooseHumanQuestion(questionID);
-    	return ok(views.html.question.render());
+    	return ok(views.html.question.render(game));
     }
 
     public static class LoginForm {
@@ -82,9 +82,9 @@ public class Application extends Controller {
     }
 
 
-    public static Result languageChanged() {
-
-    }
+//    public static Result languageChanged() {
+//
+//    }
     
     public static class QuestionForm {
     	public int questionSelected;
