@@ -31,11 +31,8 @@
                         <legend id="logindata">Login</legend>
                         @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
                         @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
-                        @helper.inputText(form("language"), '_id -> "language")
-						<select id="language" name="language">
-	               			 <option value="de">Deutsch</option>
-	                		<option value="en">English</option>
-						</select>
+                        @helper.select(form("language"), helper.options(Seq("DE", "EN")),'_id -> "language")
+						
                         <input id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
 						
                     </fieldset>
