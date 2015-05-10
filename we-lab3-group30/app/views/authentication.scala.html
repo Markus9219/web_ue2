@@ -13,7 +13,7 @@
     
     <body id="login-page">
       <a class="accessibility" href="#login">Zum Login springen</a>
-	  <a class="accessibility" title="Klicke hier um dich zu registrieren" href="register.xhtml" accesskey="r">Registrieren</a>  
+	  <a class="accessibility" title="Klicke hier um dich zu registrieren" href="@routes.Register.registration" accesskey="r">Registrieren</a>  
       <!-- Header -->
       <header role="banner" aria-labelledby="bannerheading">
          <h1 id="bannerheading">
@@ -28,13 +28,10 @@
                @helper.form(routes.AuthenticationController.authenticate){
                     <fieldset>
                         <legend id="logindata">Login</legend>
-						
-						<label for="username">Benutzername:</label>
-                        <input name="username" id="username" type="text" required="required" value="@form("username")" />
-                        <label for="password">Passwort:</label>
-                        <input name="password" id="password" type="password" required="required" value="@form("password")" />
-						
-                        <input name="login" id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
+                        @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
+                        @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
+
+                        <input id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
                     </fieldset>
                }
 

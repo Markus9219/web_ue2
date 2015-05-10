@@ -1,7 +1,11 @@
 package controllers;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 
+import at.ac.tuwien.big.we15.lab2.api.JeopardyGame;
 import models.UserModel;
 import play.cache.Cache;
 import play.data.Form;
@@ -20,19 +24,32 @@ public class AuthenticationController extends Controller{
 	
 	@Transactional
 	public static Result authenticate(){
+		Logger.debug("authenticate beginning");
 		Form<LoginForm> login = Form.form(LoginForm.class).bindFromRequest();
+		
+		for(String key:login.data().keySet()) {
+			Logger.debug(key + " -> " + login.data().get(key));
+		}
+		
+		Map<String, List<ValidationError>> errors = login.errors();
+		for(String key:errors.keySet()) {
+			Logger.debug(key + " --> " + errors.get(key).get(0).toString());
+		}
 		
 		if(!login.hasErrors()){
 			if(!isCorrect(login.get().username, login.get().password)){
-				login.reject(new ValidationError("Username Password Check", "Invalid Username oder password"));
+				Logger.debug("Invalid Username oder password");
+				login.reject("Invalid Username oder password");
 			}
 		}
 		
 		if(login.hasErrors()){
+			Logger.debug("authenticate hasErrors");
 			return badRequest(views.html.authentication.render(login));
 		}else{
-			session().clear();
 			session("username", login.get().username);
+			Application.newGame();
+    		
 			return redirect(routes.Application.jeopardy());
 		}
 		
@@ -51,7 +68,7 @@ public class AuthenticationController extends Controller{
 	@Security.Authenticated(Authenticator.class)
 	public static Result logout(){
 		session().clear();
-		Cache.remove(request().username());
+		Cache.remove(session("username"));
 		return redirect(routes.AuthenticationController.authentication());
 	}
 	
@@ -60,5 +77,10 @@ public class AuthenticationController extends Controller{
 		public String password;
 	}
 
+	public String validate() {
+		Logger.debug("validate AuthenticationController");
+		
+		return null;
+	}
 
 }

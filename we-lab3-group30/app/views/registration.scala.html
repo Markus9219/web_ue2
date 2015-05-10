@@ -45,7 +45,7 @@
                         <div id="error_msg_birthdate" class="hide" role="alert">Verwenden Sie bitte folgendes Datumsformat: dd.mm.yyyy (z.B. 24.12.2010).</div>
                         <label>Geschlecht:</label>
                         @helper.inputRadioGroup(registerForm("gender"),
-                        options = Seq(("m"->"Männlich"),("f"->"Weiblich")),
+                        options = Seq(("MALE"->"Männlich"),("FEMALE"->"Weiblich")),
                         '_label -> "Geschlecht")
                         </fieldset>
                         <fieldset>
@@ -53,10 +53,10 @@
                             <label for="avatar">Avatar:</label>
                             <select id="avatar" name="avatar">
                                 @for(avatare <- at.ac.tuwien.big.we15.lab2.api.Avatar.values()){
-                                    <option value="@avatare.getId()">@avatare.getName()</option>
+                                    <option value="@avatare">@avatare.getName()</option>
                                 }
                             </select>
-                            @helper.inputText(registerForm("username"), '_id -> "username", '_label -> "Benutzername", '_showConstraints -> false)
+                            @helper.inputText(registerForm("name"), '_id -> "username", '_label -> "Benutzername", '_showConstraints -> false)
                             <div id="error_msg_username" class="hide" role="alert">Der Benutzername muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>
                             @helper.inputPassword(registerForm("password"), '_id -> "password", '_label -> "Passwort")
                             <div id="error_msg_password" class="hide" role="alert">Das Passwort muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>

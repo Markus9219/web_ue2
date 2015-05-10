@@ -82,11 +82,10 @@
                 } else {
                    <p class="realUser-info positive-change">Du hast richtig geantwortet: +@game.getMarvinPlayer().getLatestProfitChange()€</p>
                 }
-             }
-            <p class="user-info">@game.getMarvinPlayer().getUser().getName() hat @game.getMarvinPlayer().getChosenQuestion().getCategory().getName() für € @game.getMarvinPlayer().getChosenQuestion().getValue() gewählt.</p>
+            	<p class="user-info">@game.getMarvinPlayer().getUser().getName() hat @game.getMarvinPlayer().getChosenQuestion().getCategory().getName() für € @game.getMarvinPlayer().getChosenQuestion().getValue() gewählt.</p>
+            }
             
-            
-            <form id="questionform" action="question.xhtml" method="post">
+            <form id="questionform" action="@routes.Application.question" method="post">
                
                <fieldset>
                <legend class="accessibility">Fragenauswahl</legend>

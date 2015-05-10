@@ -8,7 +8,6 @@ scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq(
   javaJdbc,
-  javaEbean,
   cache,
   javaWs,
   "com.google.code.gson" % "gson" % "2.2",
