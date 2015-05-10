@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import at.ac.tuwien.big.we15.lab2.api.JeopardyFactory;
 import at.ac.tuwien.big.we15.lab2.api.JeopardyGame;
 import at.ac.tuwien.big.we15.lab2.api.impl.PlayJeopardyFactory;
@@ -80,15 +83,32 @@ public class Application extends Controller {
     }
     
     public static Result answerQuestion() {
-    	DynamicForm form = Form.form().bindFromRequest();
-    	String result = form.get("answers");
-    	Logger.debug("selected answers: " + result);
+    	String[] answerIds = request().body().asFormUrlEncoded().get("answers");
+    	List<Integer> answerIdsInt = new ArrayList<Integer>();
+    	if(answerIds != null) {
+	    	for(String id:answerIds) {
+	    		Logger.debug("answerId: " + id);
+	    	}
+	    	
+	    	for(String answerId : answerIds) {
+	    		answerIdsInt.add(Integer.parseInt(answerId));
+	    	}
+    	}   	
     	
-    	for(String key:form.data().keySet()) {
-			Logger.debug(key + " -> " + form.data().get(key));
-		}
+    	JeopardyGame game = (JeopardyGame) Cache.get(session("username"));
+    	game.answerHumanQuestion(answerIdsInt);
     	
-    	return jeopardy();
+    	if(game.isGameOver()) {
+    		return winner();
+    	}else{
+    		return jeopardy();
+    	}
+    	
+    	
+    }
+    
+    public static Result winner() {
+    	return ok(views.html.winner.render(((JeopardyGame) Cache.get(session("username")))));
     }
 
 //    public static Result languageChanged() {
