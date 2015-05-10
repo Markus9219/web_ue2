@@ -63,8 +63,7 @@
                   </tr>
                </table>
             </section>
-            <p id="round">Fragen: 2 / 10</p> //TODO
-         </section>
+            <p id="round">Fragen: @game.getHumanPlayer().getAnsweredQuestions().size() / 10</p> 
 
          <!-- Question -->
          <section id="question-selection" aria-labelledby="questionheading">
@@ -72,15 +71,15 @@
 
              @if(false) {
                 @if(game.getHumanPlayer().getLatestProfitChange() < 0) {
-                    <p class="realUser-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
+                    <p class="user-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
                 } else {
-                    <p class="realUser-info positive-change">Du hast richtig geantwortet: +@game.getHumanPlayer().getLatestProfitChange()€</p>
+                    <p class="user-info positive-change">Du hast richtig geantwortet: +@game.getHumanPlayer().getLatestProfitChange()€</p>
                 }
 
                 @if(game.getMarvinPlayer().getLatestProfitChange() < 0) {
-                   <p class="realUser-info negative-change">Du hast falsch geantwortet: @game.getMarvinPlayer().getLatestProfitChange()€</p>
+                   <p class="user-info negative-change">@game.getMarvin().getName() hat falsch geantwortet: @game.getMarvinPlayer().getLatestProfitChange()€</p>
                 } else {
-                   <p class="realUser-info positive-change">Du hast richtig geantwortet: +@game.getMarvinPlayer().getLatestProfitChange()€</p>
+                   <p class="user-info positive-change">@game.getMarvin().getName() hat richtig geantwortet: +@game.getMarvinPlayer().getLatestProfitChange()€</p>
                 }
             	<p class="user-info">@game.getMarvinPlayer().getUser().getName() hat @game.getMarvinPlayer().getChosenQuestion().getCategory().getName() für € @game.getMarvinPlayer().getChosenQuestion().getValue() gewählt.</p>
             }
