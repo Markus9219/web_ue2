@@ -1,0 +1,64 @@
+view.global.logout=Abmelden
+view.global.logout.hover=Klicke hier um dich abzumelden
+
+view.authentication.gotologin=Zum Login springen
+view.authentication.user=Benutzername
+view.authentication.pw=Passwort
+view.authentication.loginsubmit=Anmelden
+view.authentication.loginerror=Ungültige kominbation aus Benutzername und Passwort
+view.authentication.notReg=Nicht registriert
+view.authentication.gotoreg=Zur Registrierung
+view.authentication.gotoreg.hover=Klicke hier um dich zu registrieren
+view.authentication.changelan=Sprache ändern
+view.authentication.clickToLogin=Klicke hier um dich anzumelden
+
+view.registration.gotoreg.hover=Zur Registrierung springen
+view.registration.reg=Registrierung
+view.registration.regform.personalData=Persönliche Daten
+view.registration.firstName=Vorname
+view.registration.lastName=Nachname
+view.registration.birthday=Geburtstag
+view.registration.birthday.hover=Verwenden Sie bitte folgendes Datumsformat: dd-mm-yyyy (z.B. 24-12-2010).
+view.registration.sex=Geschlecht
+view.registration.male=Männlich
+view.registration.female=Weiblich
+view.registration.playerdata=Spielerdaten
+view.registration.user.hover=Der Benutzername muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.
+view.registration.pw.hover=Das Passwort muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.
+view.registration.rebbutton=Registrieren
+view.registration.requiredFields=Mit "*" gekennzeichnete Felder sind Pflichtfelder
+
+view.registration.validation.usernameInUse=Der Benutzername ist bereits in Verwendung!
+
+view.jeopardy.hasChosenCategoryP1=hat
+view.jeopardy.hasChosenCategoryP2=für
+view.jeopardy.hasChosenCategoryP3=gewählt.
+view.jeopardy.questionSelect=Fragenauswahl
+view.jeopardy.playerAvatar=Spieler-Avatar
+view.jeopardy.jumptoQestionSelect=Zur Fragenauswahl springen
+view.jeopardy.gameinfo=Spielinformationen
+view.jeopardy.leadingPlayer=Führender Spieler
+view.jeopardy.playername=Spielername
+view.jeopardy.score=Spielerpunkte
+view.jeopardy.secondPlayer=Zweiter Spieler
+view.jeopardy.question=Frage
+view.jeopardy.userCorrectAnswer=Du hast richtig geantwortet
+view.jeopardy.userWrongAnswer=Du hast falsch geantwortet
+view.jeopardy.computerCorrectAnswer=Deadpool hat richtig geantwortet
+view.jeopardy.computerWrongAnswer=Deadpool hat falsch geantwortet
+view.jeopardy.category=Kategorie
+view.jeopardy.for=für
+view.jeopardy.lastgameinfo=Letztes Spielinfo
+view.jeopardy.lastgame=Letztes Spiel: Nie
+view.jeopardy.selectQuestion=wählen
+
+view.question.questionAnswer=Fragenbeantwortung
+view.question.submitAnswer=antworten
+view.question.timeleft=Verbleibende Zeit
+
+view.winner.playerAvatar=Spieler-Avatar
+view.winner.winnerpage=Gewinnanzeige
+view.winner.gotowinner=Zur Gewinnanzeige springen
+view.winner.winnerinformation=Gewinnerinformationen
+view.winner.winner=Gewinner
+view.winner.newgame=Neues Spiel

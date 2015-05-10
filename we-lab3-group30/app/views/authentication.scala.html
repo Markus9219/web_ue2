@@ -12,7 +12,7 @@
     </head>
     
     <body id="login-page">
-      <a class="accessibility" href="#login">Zum Login springen</a>
+      <a class="accessibility" href="#login">@Messages("view.authentication.gotologin")</a>
 	  <a class="accessibility" title="Klicke hier um dich zu registrieren" href="@routes.Register.registration" accesskey="r">Registrieren</a>  
       <!-- Header -->
       <header role="banner" aria-labelledby="bannerheading">
@@ -31,9 +31,9 @@
                         <legend id="logindata">Login</legend>
                         @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
                         @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
-                        @helper.select(form("language"), helper.options(Seq("DE", "EN")),'_id -> "language")
+                        @helper.select(form("language"), helper.options(Seq("DE", "EN")),'_id -> "Sprache:")
 						
-                        <input id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
+                        <input id="loginsubmit" class="greenlink formlink clickable" type="submit" value="@Messages("view.authentication.loginsubmit")"/>
 						
                     </fieldset>
                }
@@ -48,8 +48,8 @@
             <!-- Register section -->
             <section id="registerforward" aria-labelledby="registerheading">
                 <h2 id="registerheading" class="accessibility">Registrierung</h2>
-                <p id="registerhint">Nicht registriert?</p>
-                <a class="contentlink orangelink" title="Klicke hier um dich zu registrieren" href="@routes.Register.register()" accesskey="r">Zur Registrierung</a>
+                <p id="registerhint">@Messages("view.authentication.notReg")?</p>
+                <a class="contentlink orangelink" title="Klicke hier um dich zu registrieren" href="@routes.Register.register()" accesskey="r">@Messages("view.authentication.gotoreg")</a>
             </section>
         </div>
 

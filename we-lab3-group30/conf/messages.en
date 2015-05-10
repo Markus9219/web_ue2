@@ -1,0 +1,64 @@
+view.global.logout=Logout
+view.global.logout.hover=Click here to logout
+
+view.authentication.gotologin=Go to login
+view.authentication.user=Username
+view.authentication.pw=Password
+view.authentication.loginsubmit=Login
+view.authentication.loginerror= Wrong combination of username and password
+view.authentication.notReg=Not registered
+view.authentication.gotoreg=Go to registration
+view.authentication.gotoreg.hover=Click here to register
+view.authentication.changelan=Change language
+view.authentication.clickToLogin=Click here to login
+
+view.registration.gotoreg.hover=Go to registration
+view.registration.reg=Registration
+view.registration.regform.personalData=Personal Data
+view.registration.firstName=Firstname
+view.registration.lastName=Lastname
+view.registration.birthday=Brithdate
+view.registration.birthday.hover=Use the following date format: dd-mm-yyyy (e.g. 24-12-2010).
+view.registration.sex=Sex
+view.registration.male=male
+view.registration.female=female
+view.registration.playerdata=Playerdata
+view.registration.user.hover=The username takes at least 4 letters to a maximum of 8.
+view.registration.pw.hover=The password takes at least 4 letters to a maximum of 8.
+view.registration.rebbutton=Register
+view.registration.requiredFields=Fields marked with "*" are mandatory.
+
+view.registration.validation.usernameInUse=Username already in use!
+
+view.jeopardy.hasChosenCategoryP1=has chosen
+view.jeopardy.hasChosenCategoryP2=for
+view.jeopardy.hasChosenCategoryP3=.
+view.jeopardy.questionSelect=Question selection
+view.jeopardy.playerAvatar=Player avatar
+view.jeopardy.jumptoQestionSelect=Go to question selection
+view.jeopardy.gameinfo=Game information
+view.jeopardy.leadingPlayer=Leading player
+view.jeopardy.playername=Playername
+view.jeopardy.score=Playerscore
+view.jeopardy.secondPlayer=Second player
+view.jeopardy.question=Question
+view.jeopardy.userCorrectAnswer=You answered correctly
+view.jeopardy.userWrongAnswer=You answered wrong
+view.jeopardy.computerCorrectAnswer=Deadpool answered correctly
+view.jeopardy.computerWrongAnswer=Deadpool answered wrong
+view.jeopardy.category=Category
+view.jeopardy.for=for
+view.jeopardy.lastgameinfo=Last game info
+view.jeopardy.lastgame=Last Game: Never
+view.jeopardy.selectQuestion=select
+
+view.question.questionAnswer=Question answer
+view.question.submitAnswer=answer
+view.question.timeleft=Time left
+
+view.winner.playerAvatar=Player avatar
+view.winner.winnerpage=Winner overview
+view.winner.gotowinner=Go to winner overview
+view.winner.winnerinformation=Winner information
+view.winner.winner=Winner
+view.winner.newgame=New game

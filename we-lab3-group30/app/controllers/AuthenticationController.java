@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 
+import org.apache.commons.codec.language.bm.Lang;
+
 import at.ac.tuwien.big.we15.lab2.api.JeopardyGame;
 import models.UserModel;
 import play.cache.Cache;
@@ -49,6 +51,8 @@ public class AuthenticationController extends Controller{
 		}else{
 			session("username", login.get().username);
 			session("language", login.get().language);
+			//Lang.change(login.get().language);
+			
 			Application.newGame();
     		
 			return redirect(routes.Application.jeopardy());
