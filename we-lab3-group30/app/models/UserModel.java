@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,12 +39,17 @@ public class UserModel implements User{
 	public List<ValidationError> validate() {
 		Logger.debug("validate Register");
 		
+		List<ValidationError> errors = new ArrayList<ValidationError>();
+		
 		if(name.length() < 4 || name.length() > 8){
-			
+			errors.add(new ValidationError("name", "Name must be between 4 and 8 characters long"));
 		}
 		
+		if(password.length() < 4 || password.length() > 8) {
+			errors.add(new ValidationError("password", "PW must be between 4 and 8 characters long"));
+		}
 		
-		return null;
+		return errors.isEmpty() ? null : errors;
 	}
 	
 	@Override
