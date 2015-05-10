@@ -32,7 +32,6 @@ public class UserModel implements User{
 	private String firstName;
 	private String lastName;
 	
-	@Constraints.Required
 	private Date dateOfBirth;
 	private Gender gender;
 	
