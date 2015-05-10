@@ -59,9 +59,17 @@
                             @helper.inputText(registerForm("name"), '_id -> "username", '_label -> "Benutzername", '_showConstraints -> false)
                             <div id="error_msg_username" class="hide" role="alert">Der Benutzername muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>
                             @helper.inputPassword(registerForm("password"), '_id -> "password", '_label -> "Passwort")
+                            @if(registerForm.)
                             <div id="error_msg_password" class="hide" role="alert">Das Passwort muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>
 
                             <input class="greenlink formlink" type="submit" value="Registrieren" accesskey="s"/>
+                            
+                            @if(registerForm.hasGlobalErrors){
+			               		<p style="color:red">
+			                        @registerForm.globalError.message
+			                    </p>
+              				}
+                            
                             <p id="requiredhint">Mit "*" gekennzeichnete Felder sind Pflichtfelder</p>
                     }
                         </fieldset>

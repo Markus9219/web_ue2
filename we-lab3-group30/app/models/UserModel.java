@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 
 import at.ac.tuwien.big.we15.lab2.api.Avatar;
 import at.ac.tuwien.big.we15.lab2.api.User;
-
+import play.Logger;
 import play.data.validation.*;
 
 @Entity
@@ -29,8 +30,21 @@ public class UserModel implements User{
 	
 	private String firstName;
 	private String lastName;
+	
+	@Constraints.Required
 	private Date dateOfBirth;
 	private Gender gender;
+	
+	public List<ValidationError> validate() {
+		Logger.debug("validate Register");
+		
+		if(name.length() < 4 || name.length() > 8){
+			
+		}
+		
+		
+		return null;
+	}
 	
 	@Override
 	public String getName() {

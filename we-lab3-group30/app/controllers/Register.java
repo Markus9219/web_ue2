@@ -67,10 +67,4 @@ public class Register extends Controller {
 			return ok(views.html.authentication.render(Form.form(LoginForm.class)));
 		}
 	}
-	
-	public String validate() {
-		Logger.debug("validate Register");
-		
-		return null;
-	}
 }

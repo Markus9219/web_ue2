@@ -69,7 +69,7 @@
          <section id="question-selection" aria-labelledby="questionheading">
             <h2 id="questionheading" class="black accessibility">Jeopardy</h2>
 
-             @if(!game.isRoundStart()) {
+             @if(!game.getHumanPlayer().getAnsweredQuestions().isEmpty()) {
                 @if(game.getHumanPlayer().getLatestProfitChange() < 0 && game.getHumanPlayer().getLatestProfitChange() != null) {
                     <p class="user-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
                 } else {
