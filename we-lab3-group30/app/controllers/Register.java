@@ -19,7 +19,7 @@ import play.Logger;
 public class Register extends Controller {
 	
 	public static Result registration(){
-		Logger.info("Open Registration blabla");
+		Logger.info("Open Registration");
 		return ok(views.html.registration.render(Form.form(UserModel.class)));
 	}
 	
@@ -37,6 +37,8 @@ public class Register extends Controller {
 		for(String key:errors.keySet()) {
 			Logger.debug(key + " -> " + errors.get(key).get(0).toString());
 		}
+//		Logger.debug("avatar: " + registerData.get().getAvatar());
+//		Logger.debug("date of birth: " + registerData.get().getDateOfBirth());
 		
 		
 		if(registerData.hasErrors()) {
@@ -61,7 +63,7 @@ public class Register extends Controller {
 			Logger.info("Username bereits vorhanden");
 			return badRequest(views.html.registration.render(registerData));
 		} else {
-			Logger.debug("avatar: " + registerData.get().getAvatar());
+			
 			em.persist(registerData.get());
 			Logger.info("Neuen User angelegt");
 			return ok(views.html.authentication.render(Form.form(LoginForm.class)));
