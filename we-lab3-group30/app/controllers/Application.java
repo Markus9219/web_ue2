@@ -2,21 +2,14 @@ package controllers;
 
 import at.ac.tuwien.big.we15.lab2.api.JeopardyFactory;
 import at.ac.tuwien.big.we15.lab2.api.JeopardyGame;
-import at.ac.tuwien.big.we15.lab2.api.Question;
 import at.ac.tuwien.big.we15.lab2.api.impl.PlayJeopardyFactory;
-import at.ac.tuwien.big.we15.lab2.api.User;
-import play.*;
+
 import play.cache.Cache;
-import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.*;
-import views.html.*;
-import views.html.helper.form;
-import models.UserModel;
+import play.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
 
 @Security.Authenticated(Authenticator.class)
 public class Application extends Controller {
@@ -43,7 +36,8 @@ public class Application extends Controller {
     	String username = session().get("username");
     	JeopardyGame game;
     	if(username == null){
-    		game = newGame();	
+    		game = newGame();
+    		Logger.info("Neues Spiel erzeugt");
     	}else{
     		game = (JeopardyGame) Cache.get(username);
     	}

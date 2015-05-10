@@ -10,6 +10,7 @@ import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import play.Logger;
 
 public class AuthenticationController extends Controller{
 	

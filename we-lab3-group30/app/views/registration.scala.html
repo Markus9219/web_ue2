@@ -27,7 +27,7 @@
 		<nav role="navigation" aria-labelledby="navheading">
 			<h2 id="navheading" class="accessibility">Navigation</h2>
 			<ul>
-				<li><a class="orangelink navigationlink" id="loginlink" title="Klicke hier um dich anzumelden" href="@routes.AuthenticationController.authentication()" accesskey="l">Anmelden</a></li>
+				<li><a class="orangelink navigationlink" id="loginlink" title="Klicke hier um dich anzumelden" href="@routes.AuthenticationController.authentication()" accesskey="s">Anmelden</a></li>
 			</ul>
 		</nav>
       
@@ -38,7 +38,7 @@
                 <fieldset>
                     <legend>Persönliche Daten</legend>
 
-                    @helper.form(action= routes.Register.register()){
+                    @helper.form(routes.Register.register){
                         @helper.inputText(registerForm("firstname"), '_id -> "firstname", '_label -> "Vorname")
                         @helper.inputText(registerForm("lastname"), '_id -> "lastname", '_label -> "Nachname")
                         @helper.inputText(registerForm("birthdate"), '_id -> "birthdate", '_label -> "Geburtstag")
