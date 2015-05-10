@@ -46,7 +46,7 @@ public class Application extends Controller {
     }
     
     public static void newGame(){
-    	String lang = Controller.lang().code();
+    	String lang = session("language");
     	JeopardyFactory factory = (JeopardyFactory) Cache.get(lang);
     	if(factory == null){
     		factory = new PlayJeopardyFactory("data."+lang+".json");

@@ -23,6 +23,7 @@
       
       <!-- Content -->
         <div role="main">
+			</section>
             <section id="login" aria-labelledby="loginheading">
                <h2 id="loginheading" class="accessibility">Login</h2>
                @helper.form(routes.AuthenticationController.authenticate){
@@ -30,8 +31,13 @@
                         <legend id="logindata">Login</legend>
                         @helper.inputText(form("username"), '_id -> "username", '_label -> "Benutzername:")
                         @helper.inputText(form("password"), '_id -> "password", '_label -> "Passwort:")
-
+                        @helper.inputText(form("language"), '_id -> "language")
+						<select id="language" name="language">
+	               			 <option value="de">Deutsch</option>
+	                		<option value="en">English</option>
+						</select>
                         <input id="loginsubmit" class="greenlink formlink clickable" type="submit" value="Anmelden"/>
+						
                     </fieldset>
                }
 

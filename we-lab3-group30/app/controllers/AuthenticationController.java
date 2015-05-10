@@ -48,6 +48,7 @@ public class AuthenticationController extends Controller{
 			return badRequest(views.html.authentication.render(login));
 		}else{
 			session("username", login.get().username);
+			session("language", login.get().language);
 			Application.newGame();
     		
 			return redirect(routes.Application.jeopardy());
@@ -75,6 +76,7 @@ public class AuthenticationController extends Controller{
 	public static class LoginForm {
 		public String username;
 		public String password;
+		public String language;
 	}
 
 	public String validate() {
