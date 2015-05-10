@@ -70,7 +70,7 @@
          <section id="question-selection" aria-labelledby="questionheading">
             <h2 id="questionheading" class="black accessibility">Jeopardy</h2>
 
-             @if(!game.isRoundStart()) {
+             @if(false) {
                 @if(game.getHumanPlayer().getLatestProfitChange() < 0) {
                     <p class="realUser-info negative-change">Du hast falsch geantwortet: @game.getHumanPlayer().getLatestProfitChange()€</p>
                 } else {

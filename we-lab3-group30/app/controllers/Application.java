@@ -38,8 +38,7 @@ public class Application extends Controller {
     	JeopardyGame game = (JeopardyGame) Cache.get(username);
     	
     	Logger.debug("Das game welches geholt wurde: " + game);
-    	
-    	Cache.set(username, game);
+
     	return ok(views.html.jeopardy.render(game, Form.form(QuestionForm.class)));    	
     }
     
@@ -56,6 +55,11 @@ public class Application extends Controller {
     	// create new game
 		Logger.info("Neues Spiel erzeugt speichere im cache unter: " + session("username"));
 		Cache.set(session("username"), game);
+    }
+    
+    public static Result newGameResult() {
+    	newGame();
+    	return jeopardy();
     }
     
     public static Result question(){

@@ -19,3 +19,5 @@ POST	/question					controllers.Application.question()
 GET		/authentication				controllers.AuthenticationController.authentication()
 POST	/authentication				controllers.AuthenticationController.authenticate()
 GET		/logout						controllers.AuthenticationController.logout()
+
+POST	/jeopardy					controllers.Application.newGameResult()
