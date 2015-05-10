@@ -14,12 +14,12 @@ import play.mvc.Security;
 public class AuthenticationController extends Controller{
 	
 	public static Result authentication(){
-		return ok(views.html.authentication.render(Form.form(Login.class)));
+		return ok(views.html.authentication.render(Form.form(LoginForm.class)));
 	}
 	
 	@Transactional
 	public static Result authenticate(){
-		Form<Login> login = Form.form(Login.class).bindFromRequest();
+		Form<LoginForm> login = Form.form(LoginForm.class).bindFromRequest();
 		
 		if(!login.hasErrors()){
 			if(!isCorrect(login.get().username, login.get().password)){
@@ -54,7 +54,7 @@ public class AuthenticationController extends Controller{
 		return redirect(routes.AuthenticationController.authentication());
 	}
 	
-	public static class Login{
+	public static class LoginForm {
 		public String username;
 		public String password;
 	}

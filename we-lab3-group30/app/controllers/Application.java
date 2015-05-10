@@ -76,12 +76,6 @@ public class Application extends Controller {
     	return ok(views.html.question.render(game));
     }
 
-    public static class LoginForm {
-        public String username;
-        public String password;
-    }
-
-
 //    public static Result languageChanged() {
 //
 //    }

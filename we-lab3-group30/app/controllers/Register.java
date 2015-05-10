@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 
+import controllers.AuthenticationController.LoginForm;
 import models.UserModel;
 import play.data.Form;
 import play.db.jpa.Transactional;
@@ -32,7 +33,7 @@ public class Register extends Controller {
 			return badRequest(views.html.registration.render(registerForm));
 		} else {
 			em.persist(registerData);
-			return ok(views.html.authentication.render());
+			return ok(views.html.authentication.render(Form.form(LoginForm.class)));
 		}
 	}
 }
