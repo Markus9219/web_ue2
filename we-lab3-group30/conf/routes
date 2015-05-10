@@ -21,3 +21,4 @@ POST	/authentication				controllers.AuthenticationController.authenticate()
 GET		/logout						controllers.AuthenticationController.logout()
 
 POST	/jeopardy					controllers.Application.newGameResult()
+POST    /answerQuestion				controllers.Application.answerQuestion()

@@ -78,6 +78,18 @@ public class Application extends Controller {
     	game.chooseHumanQuestion(questionID);
     	return ok(views.html.question.render(game));
     }
+    
+    public static Result answerQuestion() {
+    	DynamicForm form = Form.form().bindFromRequest();
+    	String result = form.get("answers");
+    	Logger.debug("selected answers: " + result);
+    	
+    	for(String key:form.data().keySet()) {
+			Logger.debug(key + " -> " + form.data().get(key));
+		}
+    	
+    	return jeopardy();
+    }
 
 //    public static Result languageChanged() {
 //
