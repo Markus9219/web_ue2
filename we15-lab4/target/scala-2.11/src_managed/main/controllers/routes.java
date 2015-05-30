@@ -1,6 +1,6 @@
-// @SOURCE:C:/Users/Markus/Desktop/Studium/4. Semester/Web Engineering/Uebung 4/we15-lab4/conf/routes
+// @SOURCE:C:/Users/Markus/git/web_ue2/we15-lab4/conf/routes
 // @HASH:5b94c92980d44ac4b7c76026e9490186fd1fd49f
-// @DATE:Fri May 29 12:07:38 CEST 2015
+// @DATE:Fri May 29 18:57:21 CEST 2015
 
 package controllers;
 

@@ -1,8 +1,8 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\application.conf,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\application.conf)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\data.json,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\data.json)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\messages.de,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\messages.de)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\messages.en,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\messages.en)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\META-INF,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\META-INF)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\routes,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\routes)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\conf\META-INF\persistence.xml,C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\target\scala-2.11\classes\META-INF\persistence.xml)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\application.conf,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\data.json,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\data.json)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\messages.de,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\messages.de)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\messages.en,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\messages.en)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\META-INF,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\META-INF)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\routes,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Markus\git\web_ue2\we15-lab4\conf\META-INF\persistence.xml,C:\Users\Markus\git\web_ue2\we15-lab4\target\scala-2.11\classes\META-INF\persistence.xml)[0m

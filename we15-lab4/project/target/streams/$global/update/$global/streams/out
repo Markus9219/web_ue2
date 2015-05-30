@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Markus/Desktop/Studium/4.%20Semester/Web%20Engineering/Uebung%204/we15-lab4/project/}we15-lab4-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Markus/git/web_ue2/we15-lab4/project/}we15-lab4-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#we15-lab4-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -12317,19 +12317,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 15753ms :: artifacts dl 730ms[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT compile produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT runtime produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT test produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT provided produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT optional produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT compile-internal produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT test-internal produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT plugin produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT sources produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT docs produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT pom produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT scala-tool produced in C:\Users\Markus\Desktop\Studium\4. Semester\Web Engineering\Uebung 4\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (15753ms resolve - 730ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 14499ms :: artifacts dl 555ms[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT compile produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT runtime produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT test produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT provided produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT optional produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT compile-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT test-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT plugin produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT sources produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT docs produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT pom produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#we15-lab4-build;0.1-SNAPSHOT scala-tool produced in C:\Users\Markus\git\web_ue2\we15-lab4\project\target\resolution-cache\reports\default-we15-lab4-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (14499ms resolve - 555ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

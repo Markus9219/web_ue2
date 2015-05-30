@@ -1,4 +1,4 @@
-package controllers;
+/*package controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,4 +62,4 @@ public class Registration extends Controller {
 		});
 	}
 
-}
+}*/

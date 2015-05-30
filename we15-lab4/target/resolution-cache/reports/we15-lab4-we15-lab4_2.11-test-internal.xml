@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150529120726"/>
+		date="20150529185720"/>
 	<dependencies>
 		<module organisation="com.fasterxml.jackson.core" name="jackson-annotations">
 			<revision name="2.3.3" status="release" pubdate="20140410183819" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/JacksonHome" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="78">

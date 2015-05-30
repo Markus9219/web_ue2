@@ -1,7 +1,10 @@
 package controllers;
 
+import highscore.HighscoreService;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -19,6 +22,8 @@ import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import twitter.TwitterException;
+import twitter.TwitterStatusMessage;
 import views.html.jeopardy;
 import views.html.question;
 import views.html.winner;
@@ -156,7 +161,23 @@ public class GameController extends Controller {
 		if(game == null || !game.isGameOver())
 			return redirect(routes.GameController.playGame());
 		
-		Logger.info("[" + request().username() + "] Game over.");		
+		Logger.info("[" + request().username() + "] Game over.");
+		
+		String uuid = "";
+		try{
+			HighscoreService highscoreService = new HighscoreService();
+			uuid = highscoreService.postHighscore(game);
+		}catch(Exception e){
+			//throw new Exception("Could not post Highscore");
+			e.printStackTrace();
+		}
+		
+		TwitterStatusMessage twitterStatusMessage = new TwitterStatusMessage(game.getLeader().getUser().getName(), uuid, new Date());
+		try{
+			twitterStatusMessage.postToTwitter();
+		}catch(TwitterException e){
+			
+		}
 		return ok(winner.render(game));
 	}
 }
