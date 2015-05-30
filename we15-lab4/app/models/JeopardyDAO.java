@@ -57,7 +57,8 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public void persist(BaseEntity entity) {
-        // TODO: Implement Method
+        // TODO: Implement Method abc
+
         throw new UnsupportedOperationException("Not yet implemented.");
     }
 
