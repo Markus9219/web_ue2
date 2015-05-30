@@ -4,7 +4,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
 
+import org.apache.log4j.LogManager;
+
+import org.apache.log4j.Logger;
 import play.db.jpa.JPA;
 
 /**
@@ -12,7 +19,7 @@ import play.db.jpa.JPA;
  */
 public class JeopardyDAO implements IGameDAO {
     public static final JeopardyDAO INSTANCE = new JeopardyDAO();
-
+    public static final Logger log = LogManager.getLogger(JeopardyDAO.class);
     private JeopardyDAO() { }
     
     /**
@@ -58,8 +65,8 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public void persist(BaseEntity entity) {
         // TODO: Implement Method abc
-
-        throw new UnsupportedOperationException("Not yet implemented.");
+        log.debug("persisting " + entity);
+        em().persist(entity);
     }
 
 
@@ -73,7 +80,7 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public <T extends BaseEntity> T merge(T entity) {
         // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+        return em().merge(entity);
     }
 
     /**
@@ -86,7 +93,19 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public <T extends BaseEntity> T findEntity(Long id, Class<T> entityClazz) {
         // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+        CriteriaBuilder cb = em().getCriteriaBuilder();
+        CriteriaQuery<T> q = cb.createQuery(entityClazz);
+        Root<T> c = q.from(entityClazz);
+
+        ParameterExpression<Long> p = cb.parameter(Long.class);
+        q.select(c).where(cb.equal(c.get("id"), p));
+
+        TypedQuery<T> query = em().createQuery(q);
+        query.setParameter(p, id);
+
+        T result = query.getSingleResult();
+
+        return result;
     }
 
 
@@ -100,7 +119,18 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public <E extends BaseEntity> List<E> findEntities(Class<E> entityClazz) {
         // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+        CriteriaBuilder cb = em().getCriteriaBuilder();
+        CriteriaQuery<E> q = cb.createQuery(entityClazz);
+        Root<E> c = q.from(entityClazz);
+
+        ParameterExpression<Long> p = cb.parameter(Long.class);
+        q.select(c);
+
+        TypedQuery<E> query = em().createQuery(q);
+
+        List<E> result = query.getResultList();
+
+        return result;
     }
 
     /**
