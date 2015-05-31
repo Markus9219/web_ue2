@@ -163,7 +163,7 @@ public class GameController extends Controller {
 
 		Logger.info("[" + request().username() + "] Game over.");
 		Logger.info("Trying to post Highscore");
-		String uuid = "";
+		String uuid = null;
 		try{
 			HighscoreService highscoreService = new HighscoreService();
 			uuid = highscoreService.postHighscore(game);
@@ -174,13 +174,19 @@ public class GameController extends Controller {
 
 		}
 
-		TwitterStatusMessage twitterStatusMessage = new TwitterStatusMessage(game.getLeader().getUser().getName(), uuid, new Date());
-		try{
-			twitterStatusMessage.postToTwitter();
-			Logger.info("Twitter post successfull!");
-		}catch(TwitterException e){
-			Logger.error("Twitter post failed");
+		if(uuid != null) {
+			TwitterStatusMessage twitterStatusMessage = new TwitterStatusMessage(game.getLeader().getUser().getName(), uuid, new Date());
+			try{
+				twitterStatusMessage.postToTwitter();
+				Logger.info("UUID "+uuid+" wurde auf Twitter veroeffentlicht!");
+			}catch(TwitterException e){
+				Logger.error("Twitter post failed");
+			}
+		} else {
+			Logger.info("Could not post on Twitter because there was no UUID");
 		}
+
+
 		return ok(winner.render(game));
 	}
 }

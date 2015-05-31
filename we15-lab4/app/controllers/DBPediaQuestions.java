@@ -28,7 +28,7 @@ public class DBPediaQuestions {
 		category.setName("Geography", "en");
 		
 		Question question1 = new Question();
-		question1.setValue(50);
+		question1.setValue(10);
 		question1.setText("Welche Städte sind in Deutschland?", "de");
 		question1.setText("Which cities are in Germany?", "en");
 		
@@ -88,7 +88,7 @@ public class DBPediaQuestions {
 		// Question 2
 		
 		Question question2 = new Question();
-		question2.setValue(50);
+		question2.setValue(20);
 		question2.setText("Welche Städte sind in Österreich?", "de");
 		question2.setText("Which cities are in Austria?", "en");
 				
@@ -141,7 +141,7 @@ public class DBPediaQuestions {
 		// Question 3
 		
 		Question question3 = new Question();
-		question3.setValue(50);
+		question3.setValue(30);
 		question3.setText("Welche Städte sind in Spanien?", "de");
 		question3.setText("Which cities are in Spain?", "en");
 						
@@ -194,7 +194,7 @@ public class DBPediaQuestions {
 		// Question 4
 		
 		Question question4 = new Question();
-		question4.setValue(50);
+		question4.setValue(40);
 		question4.setText("Welche Städte sind in Polen?", "de");
 		question4.setText("Which cities are in Poland?", "en");
 						
