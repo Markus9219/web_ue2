@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import controllers.DBPediaQuestions;
 import models.Category;
 import play.Application;
 import play.GlobalSettings;
@@ -35,6 +36,20 @@ public class Global extends GlobalSettings {
 			   
 			});
        } catch (Throwable e) {
+    	   e.printStackTrace();
+       }
+       
+       try{
+    	   JPA.withTransaction(new Function0<Boolean>(){
+    		   @Override
+    		   public Boolean apply() throws Throwable{
+    			   DBPediaQuestions questions = new DBPediaQuestions();
+    			   questions.createQuestions();
+    			   return true;
+    		   }
+    	   });
+    	   
+       }catch(Throwable e){
     	   e.printStackTrace();
        }
     }
