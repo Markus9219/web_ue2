@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Markus/git/web_ue2/we15-lab4/}root...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Philipp/git/web_ue2/we15-lab4/}root...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@714fa4[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5f9ba441[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -515,7 +515,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.8 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java_2.11;2.3.8 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@15f0a7f5[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@597f266b[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.play#play-java_2.11;2.3.8[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: com.typesafe.play#play-java_2.11;2.3.8[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java_2.11;2.3.8 in sbt-chain[0m
@@ -991,15 +991,15 @@
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java-jpa_2.11;2.3.8 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final[0m
 [0m[[0mdebug[0m] [0m	found org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final in sbt-chain[0m
@@ -2541,11 +2541,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->compile][0m
@@ -3901,11 +3901,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->compile][0m
@@ -6735,11 +6735,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->compile][0m
@@ -8117,11 +8117,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->compile][0m
@@ -9499,11 +9499,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.8 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->com.typesafe.play#play-java-jdbc_2.11;2.3.8 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-jpa_2.11;2.3.8->org.scala-lang#scala-library;2.11.1 [runtime->compile][0m
@@ -12141,19 +12141,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 12531ms :: artifacts dl 483ms[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT compile produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT runtime produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT test produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT provided produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT optional produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT compile-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT runtime-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT test-internal produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT plugin produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT sources produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT docs produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT pom produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT scala-tool produced in C:\Users\Markus\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (12531ms resolve - 483ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 3533ms :: artifacts dl 113ms[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT compile produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT runtime produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT test produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT provided produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT optional produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT compile-internal produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT runtime-internal produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT test-internal produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT plugin produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT sources produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT docs produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT pom produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for we15-lab4#we15-lab4_2.11;1.0-SNAPSHOT scala-tool produced in C:\Users\Philipp\git\web_ue2\we15-lab4\target\resolution-cache\reports\we15-lab4-we15-lab4_2.11-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (3533ms resolve - 113ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
