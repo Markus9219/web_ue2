@@ -1,1 +1,6 @@
 eclipse with-source=true
+clean
+compile
+run
+compile
+run

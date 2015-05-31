@@ -1,6 +1,6 @@
-// @SOURCE:C:/Users/Markus/Desktop/Studium/4. Semester/Web Engineering/Uebung 4/we15-lab4/conf/routes
-// @HASH:5b94c92980d44ac4b7c76026e9490186fd1fd49f
-// @DATE:Fri May 29 12:07:38 CEST 2015
+// @SOURCE:F:/Daten/workspace_java/web04/we15-lab4/conf/routes
+// @HASH:331cfae7aa41dc6f34b9f0186deb3a25b0b719a3
+// @DATE:Sat May 30 17:08:19 CEST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

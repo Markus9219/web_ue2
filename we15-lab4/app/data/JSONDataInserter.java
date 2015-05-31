@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import play.Logger;
 import play.db.jpa.Transactional;
 import models.Answer;
 import models.Category;
@@ -32,7 +33,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 public class JSONDataInserter {
-
 	private static Gson createGson() {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(Category.class, new CategoryDeserializer());
@@ -47,7 +47,9 @@ public class JSONDataInserter {
 		
 		List<Category> categories = gson.fromJson(
 				new InputStreamReader(inputStream, Charsets.UTF_8), collectionType);
-		
+
+		Logger.debug("number of categories: " + categories.size());
+
 		return categories;
 	}
 	
