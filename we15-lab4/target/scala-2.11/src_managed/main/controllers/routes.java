@@ -1,6 +1,6 @@
-// @SOURCE:C:/Users/Philipp/git/web_ue2/we15-lab4/conf/routes
+// @SOURCE:F:/Daten/workspace_java/web04/we15-lab4/conf/routes
 // @HASH:331cfae7aa41dc6f34b9f0186deb3a25b0b719a3
-// @DATE:Sun May 31 13:03:21 CEST 2015
+// @DATE:Sun May 31 17:06:50 CEST 2015
 
 package controllers;
 

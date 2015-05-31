@@ -160,23 +160,26 @@ public class GameController extends Controller {
 		JeopardyGame game = cachedGame(request().username());
 		if(game == null || !game.isGameOver())
 			return redirect(routes.GameController.playGame());
-		
+
 		Logger.info("[" + request().username() + "] Game over.");
-		
+		Logger.info("Trying to post Highscore");
 		String uuid = "";
 		try{
 			HighscoreService highscoreService = new HighscoreService();
 			uuid = highscoreService.postHighscore(game);
+			Logger.info("Posted Highscore successfully" + "UUID: " + uuid);
 		}catch(Exception e){
 			//throw new Exception("Could not post Highscore");
-			e.printStackTrace();
+			Logger.error(e.getMessage());
+
 		}
-		
+
 		TwitterStatusMessage twitterStatusMessage = new TwitterStatusMessage(game.getLeader().getUser().getName(), uuid, new Date());
 		try{
 			twitterStatusMessage.postToTwitter();
+			Logger.info("Twitter post successfull!");
 		}catch(TwitterException e){
-			
+			Logger.error("Twitter post failed");
 		}
 		return ok(winner.render(game));
 	}

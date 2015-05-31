@@ -1,8 +1,8 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\application.conf,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\application.conf)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\data.json,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\data.json)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\messages.de,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\messages.de)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\messages.en,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\messages.en)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\META-INF,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\META-INF)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\routes,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\routes)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Philipp\git\web_ue2\we15-lab4\conf\META-INF\persistence.xml,C:\Users\Philipp\git\web_ue2\we15-lab4\target\scala-2.11\classes\META-INF\persistence.xml)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\application.conf,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\data.json,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\data.json)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\messages.de,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\messages.de)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\messages.en,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\messages.en)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\META-INF,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\META-INF)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\routes,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(F:\Daten\workspace_java\web04\we15-lab4\conf\META-INF\persistence.xml,F:\Daten\workspace_java\web04\we15-lab4\target\scala-2.11\classes\META-INF\persistence.xml)[0m
